@@ -69,12 +69,12 @@ start:
 
 void init(struct stack *s)
 {
-    s->top = -1; // nomor 1
+    s->top = -1;
 }
 
 int empty(struct stack *s)
 {
-    if (s->top == -1) // nomor 2
+    if (s->top == -1)
     {
         return TRUE;
     }
@@ -86,12 +86,12 @@ int empty(struct stack *s)
 
 void push(struct stack *s, int x)
 {
-    if (s->top == STACKSIZE - 1) // nomor 3
+    if (s->top == STACKSIZE - 1)
     {
         printf("Stack overflow\n");
         exit(1);
     }
-    s->top++; // nomor 4
+    s->top++;
     s->item[s->top] = x;
 }
 
@@ -104,7 +104,7 @@ int pop(struct stack *s)
         exit(1);
     }
     y = s->item[s->top];
-    s->top--; // nomor 5
+    s->top--;
     return (y);
 }
 
