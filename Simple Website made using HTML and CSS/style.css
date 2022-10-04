@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    font-weight:700;
+}
+.first .firstp
+{
+    font-weight: 300;
+    color: #ffffff;
+}
+/*body
+{
+    min-height: 10000px;
+}*/
+script
+{
+    background: #ffffff;
+}
+.index
+{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('index background image.jpg');
+    background-size: cover;
+    user-select: none;
+    
+}
+.index .first
+{
+    max-width: 900px;
+    text-align: center;
+}
+.index .first h2
+{
+    font-size: 5em;
+    color: #ffffff;
+    background-color: rgba(4, 4, 4, 0.016);
+}
+.index .first p
+{
+    font-size: 20px;
+    color: #ffffff;
+    background-color: rgba(4, 4, 4, 0.016);
+}
+.lrm
+{
+    font-size: 1em;
+    color: #ffffff;
+    background: #ff0157;
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+.lrm:hover
+{
+    letter-spacing: 6px;
+}
+header
+{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    padding: 10px 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+    background-color: rgba(0, 0, 0, 0.822);
+}
+header .logo
+{
+    color: white;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+header .logo span
+{
+    color: #ff0158;
+}
+header .navigation
+{
+    position: relative;
+    display: flex;
+}
+header .navigation li
+{
+    list-style: none;
+    margin-left: 30px;
+    user-select: none;
+}
+header .navigation li a
+{
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+}
+header .navigation li a:hover
+{
+    color: #ff0157;
+}
+header .navigation li .join_icon
+{
+    border: 5px solid rgb(23, 223, 30);
+    border-radius: 20px;
+    background-color: rgb(23, 223, 30);
+}
+header .navigation li .join_icon:hover
+{
+    color: white;
+}
+section
+{
+    padding: 100px;
+}
+.second
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.second .second1
+{
+    position: relative;
+    width: 48%;
+}
+.secondh
+{
+    color:black;
+    font-size: 2em;
+    font-weight: 300;
+    user-select: none;
+}
+.secondh span
+{
+    color: #ff0157;
+    font-weight: 700;
+    font-size: 2em;
+}
+.second .second1 .secondi
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.second .second1 .secondi img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.title
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.menu .content
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+.menu .content .box
+{
+    width: 250px;
+    height: 300px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 15px solid white;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.299);
+    transition: 0.5s;
+}
+.menu .content .box:hover
+{
+    width: 270px;
+    height: 320px; 
+}
+.menu .content .box .secondi
+{
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+.menu .content .box .secondi img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.menu .content .box .text
+{
+    padding: 15px 0 5px;
+    text-align: center;
+    font-size: 1.5em;
+}
+.menu .content .box:hover
+{
+    padding: 15px 0 5px;
+    text-align: center;
+    font-size: 1.5em;
+    transition: 0.5s;
+}
+.menu .content .box .text h3
+{
+    font-weight: 400;
+    color: #111;
+}
+
+.faculty .content
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 40px;
+}
+.faculty .content .box
+{
+    width: 250px;
+    height: 360px;
+    margin: 15px;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.299);
+    transition: 0.5s;
+}
+.faculty .content .box:hover
+{
+    width: 270px;
+    height: 380px;
+    margin: 15px;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.299);
+    font-size: 1.5em;
+}
+.faculty .content .box .secondi
+{
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+.faculty .content .box .secondi img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.faculty .content .box .text
+{
+    padding: 15px 0 5px;
+    text-align: center;
+    /* transition: 0.5s; */
+}
+.faculty .content .box .text h3
+{
+    font-weight: 400;
+    color: #111;
+}
+.student
+{
+    background: url('index background image.jpg');
+}
+.student .title .secondh
+{
+    color:rgb(253, 252, 252);
+    font-size: 2em;
+    font-weight: 300;
+    user-select: none;
+}
+.student .content
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 40px;
+}
+.student .content .box
+{
+    width: 250px;
+    height: 360px;
+    margin: 15px;
+    background: white;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.299);
+    transition: 0.5s;
+}
+.student .content .box .secondi
+{
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+.student .content .box .secondi img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.student .content .box .text
+{
+    padding: 15px 0 5px;
+    text-align: center;
+    /* transition: 0.5s; */
+}
+.student .content .box .text h3
+{
+    font-weight: 400;
+    color: #111;
+}
