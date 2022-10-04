@@ -1,0 +1,33 @@
+.card-container{
+    display:flex
+}
+.card{
+    margin: 4px 7px;
+    flex-direction: column;
+    
+}
+.container{
+    padding: 20px 10px;
+}
+#backimg{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+}
+#banner{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    margin: -100px -110px 
+}
+hr{
+    color:lightblue;
+    width: 20px;
+}
+
