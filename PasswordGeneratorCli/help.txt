@@ -1,0 +1,6 @@
+Password Generator Cli in python
+
+To generate password:
+ execute the gen.py file with password length as argument.
+ example: python3 gen.py --l=12
+ output: 3A&#3k7i&#^W
