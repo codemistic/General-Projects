@@ -1,0 +1,16 @@
+import pyttsx3
+import PyPDF2
+#You can add your own Pdf in the below line for reading
+book = open('ThinkandGrowRich.pdf', 'rb')
+pdfReader = PyPDF2.PdfFileReader(book)
+pages = pdfReader.numPages
+
+speaker = pyttsx3.init()
+#Type the no of page from where u want to start to read
+for num in range(7, pages):
+    page = pdfReader.getPage(num)
+    text = page.extractText()
+    speaker.say(text)
+    speaker.runAndWait()
+    
+#That's it Your Python will read the book for u
