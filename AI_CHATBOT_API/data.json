@@ -1,0 +1,79 @@
+{"intents": 
+[
+    {"tag": "greeting",
+     "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
+     "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+     "context": [""]
+    },
+    {"tag": "goodbye",
+     "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+     "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+     "context": [""]
+    },
+    {"tag": "thanks",
+     "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+     "responses": ["Happy to help!", "Any time!", "My pleasure"],
+     "context": [""]
+    },
+    {"tag": "noanswer",
+     "patterns": [],
+     "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+     "context": [""]
+    },
+    {"tag": "options",
+     "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
+     "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
+     "context": [""]
+    },
+    
+    {"tag": "approval_process",
+     "patterns": ["approval process 2021-22", "approval processs", "process for approval"],
+     "responses": ["Institute are requested to raises queries only through online Grievance Redressal mechanism","available on AICTE website under Approval Process 2021-22 quick links. No queries through email will be entertained."],
+     "context": [""]
+    }
+    ,
+    {
+        "tag":"closure_institution",
+        "patterns":["Can we apply for closure of the existing Institution","applying for closure","existing instituion"],
+        "responses":["Yes  The existing Institution applied for Closure of the Institution are also eligible to apply for starting a new Technical Institution in the same premises in the same Academic year."],
+        "context":[""]
+    },
+    {
+        "tag":"old_remove",
+        "patterns":["How to delete old faculty details"],
+        "responses":["Faculty record cannot be deleted Faculty can be marked as Duplicate or Left the Institute under HOI & Faculty Details tab."],
+        "context":[""]
+    }
+    ,
+    {"tag": "update_details",
+     "patterns": ["How to update/add the faculty details by import method","how to update faculty details","import method"],
+     "responses": ["Please follow the User Manual available @ https://aicte-india.org/bureaus/approval/ap_2020-21 for uploading faculty details by import method."],
+     "context": [""]
+    },
+    {"tag": "online_payment",
+     "patterns": ["amount not updated on the portal","transaction error"],
+     "responses": ["Generally, payment receipt gets updated immediately. In case, your payment receipt is not updated then click on View Transaction Button under Payment tab. Otherwise, it will get updated in 48 to 72 working hours (2 to 3 working days)","In case it is not updated even after that, please raise grievance with transaction details (Transaction Id generated while making the payment) through Online Grievance Redressal form. Link is available on Approval Process 2020-21 page."],
+     "context": [""]
+    },
+    {
+        "tag":"aadhar_pan",
+        "patterns":["is aadhar card mandatory","aadhar mandatory","pan card mandatory"],
+        "responses":["YES"],
+        "context":[""]
+    },
+    {
+        "tag":"read_only",
+        "patterns":["We want to change details which are non-editable / read-only"],
+        "responses":["You may contact the Approval Bureau or Regional Office."],
+        "context":[""]
+    },
+    {
+        "tag":"degree_diploma",
+        "patterns":["degree to diploma","how to convert from degree to diploma"],
+        "responses":["refer to clause 2.8","After re-open, the application should be resubmitted. Otherwise application will be treated as Application Not Submitted."],
+        "context":[""]
+    }
+
+
+]
+}
