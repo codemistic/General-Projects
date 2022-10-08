@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyQuiz</string>
+    <string name="name_hint">e.g. Naruto</string>
+    <string name="piplup">Piplup</string>
+    <string name="bulbasaur">Bulbasaur</string>
+    <string name="pikachu">Pikachu</string>
+    <string name="charizard">Charizard</string>
+</resources>
