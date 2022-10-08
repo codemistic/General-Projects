@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String   
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id              String   @id @default(uuid())
+  name            String
+  subcategories   Subcategory[]
+  posts           Post[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Subcategory {
+  id          String    @id @default(uuid())
+  name        String
+  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId  String
+  posts       Post[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Post {
+  id              String @id @default(uuid())
+  title           String
+  body            String
+  category        Category  @relation(fields: [categoryId], references: [id])
+  categoryId      String
+  subcategory   Subcategory @relation(fields: [subCategoryId], references: [id])
+  subCategoryId   String
+  links           Link[]
+  updatedAt       DateTime @updatedAt
+  createdAt       DateTime @default(now())
+}
+
+model Link {
+  id              String @id @default(uuid())
+  name            String
+  post            Post @relation(fields: [postId], references: [id])
+  postId          String
+  updatedAt       DateTime @updatedAt
+  createdAt       DateTime @default(now())
+}
