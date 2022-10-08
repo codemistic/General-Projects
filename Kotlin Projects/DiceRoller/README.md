@@ -1,0 +1,2 @@
+# Dice
+Kotlin Dice App.
