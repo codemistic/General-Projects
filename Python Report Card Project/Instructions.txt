@@ -1,0 +1,11 @@
+//Written by Bhuwanesh Nainwal
+
+1> Run the "pdfGenerator" exe file.
+
+2> Be patient and wait for few seconds pdfs will begin to appear one by one.
+
+3> To make user interface simpler I am not taking any input from user while running my .exe file (But that is trivial and can be achieved if required) and I kept all the pics at the same folder for the same reason.
+
+5> I hope you will like my hard work.
+
+6> Thank you.
