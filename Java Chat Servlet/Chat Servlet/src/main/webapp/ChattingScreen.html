@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chat App</title>
+    <link rel="stylesheet" type="text/css" href="chatstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="chat">
+    <form action="ChattingServlet" method="post">
+        <textarea name="message" rows="10" cols="70" placeholder="Enter Message" required=""></textarea>
+        <button type="submit">Chat</button>
+    </form>
+    <form action="chat.jsp" >
+        <button class="ref-btn" type="submit">Refresh</button>
+    </form>
+    <form action="DeleteRoomServlet" method="get">
+        <button class="btn" type="submit">Delete Room</button>
+    </form>
+
+</div>
+
+</body>
+</html>
