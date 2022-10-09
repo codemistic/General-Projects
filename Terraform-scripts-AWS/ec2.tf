@@ -7,6 +7,7 @@ resource "aws_instance" "instance_type" {
   availability_zone           = var.azs
   user_data                   = file("docker.sh")
   user_data                   = "${file("jenkins.sh")}"
+  user_data                   = "${file("ansible.sh")}"
   key_name                    = var.key_name
   root_block_device {
       volume_size = "30"
