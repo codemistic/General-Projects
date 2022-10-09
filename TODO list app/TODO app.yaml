@@ -1,0 +1,606 @@
+modules: []
+exported_table_schema:
+- python_name: todos
+  client: full
+  server: full
+  name: TODOS
+  columns:
+    D+P3gYj9Su8=:
+      name: Completed_On
+      type: string
+      admin_ui: {order: 3, width: 200}
+    EEi_tA7gxTQ=:
+      name: Description
+      type: string
+      admin_ui: {order: 1, width: 200}
+    Qt_9YxpM3pA=:
+      name: Done
+      type: bool
+      admin_ui: {order: 2, width: 200}
+    kh23D7KXKRw=:
+      name: Task
+      type: string
+      admin_ui: {order: 0, width: 200}
+  id: 306178
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+forms:
+- container:
+    type: ColumnPanel
+    properties: {col_widths: '{}'}
+    data_bindings:
+    - {property: tag, code: 'self.item[''Description'']'}
+  components:
+  - type: Label
+    properties: {role: subheading, align: right, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Task:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'GZJNUT,KSWODJ'}
+  - type: TextBox
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: 'What
+        is the task?', border: '', enabled: true, foreground: '', visible: true, text: '',
+      font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false}
+    name: text_box_1
+    layout_properties: {grid_position: 'GZJNUT,BPYFUW'}
+    data_bindings:
+    - {property: text, code: 'self.item[''Task'']', writeback: true}
+  - type: Label
+    properties: {role: subheading, align: right, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Description:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_2
+    layout_properties: {grid_position: 'QSMELP,PMRGFD'}
+  - type: TextArea
+    properties: {role: null, align: left, height: '', tooltip: '', placeholder: Description about the task.,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: text_area_1
+    layout_properties: {grid_position: 'QSMELP,XDDAGD'}
+    data_bindings:
+    - {property: text, code: 'self.item[''Description'']', writeback: true}
+  is_package: true
+  code: "from ._anvil_designer import TaskEditTemplate\nfrom anvil import *\nimport\
+    \ anvil.server\nimport anvil.tables as tables\nimport anvil.tables.query as q\n\
+    from anvil.tables import app_tables\n\nclass TaskEdit(TaskEditTemplate):\n  def\
+    \ __init__(self, **properties):\n    # Set Form properties and Data Bindings.\n\
+    \    self.init_components(**properties)\n\n    # Any code you write here will\
+    \ run when the form opens.\n\n  def text_box_2_pressed_enter(self, **event_args):\n\
+    \    \"\"\"This method is called when the user presses Enter in this text box\"\
+    \"\"\n    pass\n\n"
+  class_name: TaskEdit
+  id: 33XV5J747UUYZEZZMGIGQJ2OS6IVYID2
+- is_package: true
+  container:
+    type: HtmlTemplate
+    properties: {html: '@theme:standard-page.html'}
+  components:
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: content_panel
+    layout_properties: {slot: default}
+    components:
+    - type: RepeatingPanel
+      properties: {item_template: allCompletedTask.allCompletedTasksTemplate}
+      name: repeating_panel_1
+      layout_properties: {grid_position: 'BIJKED,GSMXSN'}
+  - type: FlowPanel
+    properties: {}
+    name: navbar_links
+    layout_properties: {slot: nav-right}
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: column_panel_1
+    layout_properties: {slot: left-nav}
+    components:
+    - type: Link
+      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: TO-DOS, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+        spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: ''}
+      name: link_1
+      layout_properties: {grid_position: 'NNRVUM,RWMUYT'}
+      event_bindings: {click: link_1_click}
+    - type: Link
+      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: COMPLETED TASKS, font_size: null, wrap_on: mobile, font: '',
+        col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: link_2
+      layout_properties: {grid_position: 'TRWUVD,ULEURT'}
+      event_bindings: {click: link_2_click}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: COMPLETED TASKS, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {slot: title}
+  code: "from ._anvil_designer import allCompletedTaskTemplate\nfrom anvil import\
+    \ *\nimport anvil.server\nimport anvil.tables as tables\nimport anvil.tables.query\
+    \ as q\nfrom anvil.tables import app_tables\n\nclass allCompletedTask(allCompletedTaskTemplate):\n\
+    \  def __init__(self, **properties):\n    # Set Form properties and Data Bindings.\n\
+    \    self.init_components(**properties)\n  \n    # Any code you write here will\
+    \ run before the form opens.\n    self.repeating_panel_1.items = app_tables.todos.search(Done\
+    \ = True)\n\n  def link_2_click(self, **event_args):\n    \"\"\"This method is\
+    \ called when the link is clicked\"\"\"\n    pass\n\n  def link_1_click(self,\
+    \ **event_args):\n    \"\"\"This method is called when the link is clicked\"\"\
+    \"\n    \n    open_form('allTasks')\n    pass\n\n\n"
+  class_name: allCompletedTask
+  id: QVMYCDNSROOIIQ5R4566VMTXHCTBAHNJ
+- container:
+    type: ColumnPanel
+    properties: {col_widths: '{"HOYCKE":3,"YGFNKJ":57}'}
+    data_bindings:
+    - {property: tag, code: 'self.item[''Task'']'}
+  components:
+  - type: CheckBox
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', allow_indeterminate: false, visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+      bold: false, checked: false, underline: false}
+    name: check_box_1
+    layout_properties: {grid_position: 'BDMLDO,HOYCKE'}
+    data_bindings:
+    - {property: checked, code: 'self.item[''Done'']', writeback: true}
+    event_bindings: {change: check_box_1_change}
+  - type: Link
+    properties: {}
+    name: link_1
+    layout_properties: {grid_position: 'BDMLDO,YGFNKJ'}
+    data_bindings:
+    - {property: text, code: 'self.item[''Task'']'}
+    event_bindings: {click: link_1_click}
+  is_package: true
+  code: "from ._anvil_designer import allCompletedTasksTemplateTemplate\nfrom anvil\
+    \ import *\nimport anvil.server\nimport anvil.tables as tables\nimport anvil.tables.query\
+    \ as q\nfrom anvil.tables import app_tables\nimport datetime\nimport time\n\n\
+    class allCompletedTasksTemplate(allCompletedTasksTemplateTemplate):\n  def __init__(self,\
+    \ **properties):\n    # Set Form properties and Data Bindings.\n    self.init_components(**properties)\n\
+    \n    # Any code you write here will run when the form opens.\n\n  def link_1_click(self,\
+    \ **event_args):\n    \"\"\"This method is called when the link is clicked\"\"\
+    \"\n    \n    description = self.item['Description']\n    \n    current_time =\
+    \ \"\"\n    description = \"\"\n    \n    if self.item['Description'] is not None:\n\
+    \      description = self.item['Description']\n    \n    \n    if self.item['Done']\
+    \ == True:\n      current_time = datetime.datetime.strptime(self.item['Completed_On'],\"\
+    %Y-%m-%d %H:%M:%S.%f\").strftime('%b %d %Y at %I:%M%p')\n      alert(description\
+    \ + '\\nTask completed on: ' + current_time)\n    pass\n\n  def check_box_1_change(self,\
+    \ **event_args):\n    \"\"\"This method is called when this checkbox is checked\
+    \ or unchecked\"\"\"\n    pass\n\n\n"
+  class_name: allCompletedTask.allCompletedTasksTemplate
+  id: NA7Q245FX3OM33KOSNOSY5X342YL3KOL
+- is_package: true
+  container:
+    type: HtmlTemplate
+    properties: {html: '@theme:standard-page.html'}
+  components:
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: content_panel
+    layout_properties: {slot: default}
+    components:
+    - type: RepeatingPanel
+      properties: {item_template: allTasks.allTasksTemplate}
+      name: repeating_panel_1
+      layout_properties: {grid_position: 'PXPZGW,HDCKBW'}
+    - type: ColumnPanel
+      properties: {col_widths: '{"RZONFA":40}'}
+      name: column_panel_2
+      layout_properties: {grid_position: 'XWMARZ,PWIEOY'}
+      components:
+      - type: TextBox
+        properties: {role: dense, align: left, hide_text: false, tooltip: '', placeholder: 'What
+            do you want to remember?', border: '', enabled: true, foreground: '',
+          visible: true, text: '', font_size: null, font: '', spacing_above: small,
+          type: text, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false}
+        name: new_reminder_box
+        layout_properties: {grid_position: 'QMKYRZ,RZONFA', full_width_row: false}
+        event_bindings: {pressed_enter: new_reminder_box_pressed_enter}
+      - type: Button
+        properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: Add reminder, font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false, icon: 'fa:plus'}
+        name: button_1
+        layout_properties: {grid_position: 'QMKYRZ,HHBFCN', full_width_row: false}
+        event_bindings: {click: button_1_click}
+        data_bindings: []
+  - type: FlowPanel
+    properties: {}
+    name: navbar_links
+    layout_properties: {slot: nav-right}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: TODO LIST APP, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {slot: title}
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: column_panel_1
+    layout_properties: {slot: left-nav}
+    components:
+    - type: Link
+      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: TO-DOS, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+        spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: ''}
+      name: link_1
+      layout_properties: {grid_position: 'QTVAGK,UNCUDN'}
+      event_bindings: {click: link_1_click}
+    - type: Link
+      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: COMPLETED TASKS, font_size: null, wrap_on: mobile, font: '',
+        col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: link_2
+      layout_properties: {grid_position: 'NGFVMN,KZTHUY'}
+      event_bindings: {click: link_2_click}
+  code: "from ._anvil_designer import allTasksTemplate\nfrom anvil import *\nimport\
+    \ anvil.server\nimport anvil.tables as tables\nimport anvil.tables.query as q\n\
+    from anvil.tables import app_tables\n\nclass allTasks(allTasksTemplate):\n  def\
+    \ __init__(self, **properties):\n    # Set Form properties and Data Bindings.\n\
+    \    self.init_components(**properties)\n\n    # Any code you write here will\
+    \ run when the form opens.\n\n    self.repeating_panel_1.items = app_tables.todos.search(Done\
+    \ = False)\n  \n  \n  def link_1_click(self, **event_args):\n    \"\"\"This method\
+    \ is called when the link is clicked\"\"\"\n    open_form('allTasks')\n    pass\n\
+    \n  def button_1_click(self, **event_args):\n    \n   \n    \"\"\"This method\
+    \ is called when the button is clicked\"\"\"\n    \n    if self.new_reminder_box.text\
+    \ == \"\":\n      alert('Hey ! You need write something.')\n    else:\n      app_tables.todos.add_row(Task=self.new_reminder_box.text,\
+    \ Done = False)\n    self.repeating_panel_1.items = app_tables.todos.search(Done\
+    \ = False)\n    \n    self.new_reminder_box.text = ''\n    # pass\n\n  def new_reminder_box_pressed_enter(self,\
+    \ **event_args):\n    \"\"\"This method is called when the user presses Enter\
+    \ in this text box\"\"\"\n    pass\n\n  def link_2_click(self, **event_args):\n\
+    \    \"\"\"This method is called when the link is clicked\"\"\"\n    open_form('allCompletedTask')\n\
+    \    pass\n\n\n\n\n\n"
+  class_name: allTasks
+  id: G7BPEO5KAYKI36XHVZX7FHMESER22YUO
+- container:
+    type: ColumnPanel
+    properties: {col_widths: '{"DJINVV":28,"YHBFKN":2,"RHYGGF":15,"FYLUGH":15}'}
+  components:
+  - type: CheckBox
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', allow_indeterminate: false, visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+      bold: false, checked: false, underline: false}
+    name: check_box_1
+    layout_properties: {grid_position: 'RVHOPR,YHBFKN'}
+    event_bindings: {change: check_box_1_change}
+    data_bindings:
+    - {property: checked, code: 'self.item[''Done'']', writeback: true}
+  - type: Link
+    properties: {}
+    name: link_1
+    layout_properties: {grid_position: 'RVHOPR,DJINVV'}
+    event_bindings: {click: link_1_click}
+    data_bindings:
+    - {property: text, code: 'self.item[''Task'']'}
+  - type: Link
+    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+      spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: 'fa:pencil'}
+    name: link_edit
+    layout_properties: {grid_position: 'RVHOPR,RHYGGF'}
+    event_bindings: {click: link_edit_click}
+  - type: Link
+    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#ff0000',
+      visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+      spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: 'fa:times'}
+    name: delete_link
+    layout_properties: {grid_position: 'RVHOPR,FYLUGH'}
+    event_bindings: {click: delete_link_click}
+  is_package: true
+  item_type: {table_id: null}
+  code: "from ._anvil_designer import allTasksTemplateTemplate\nfrom anvil import\
+    \ *\nimport anvil.server\nimport anvil.tables as tables\nimport anvil.tables.query\
+    \ as q\nfrom anvil.tables import app_tables\nfrom ...TaskEdit import TaskEdit\n\
+    import datetime\nimport time\nclass allTasksTemplate(allTasksTemplateTemplate):\n\
+    \  def __init__(self, **properties):\n    # Set Form properties and Data Bindings.\n\
+    \    self.init_components(**properties)\n\n    # Any code you write here will\
+    \ run when the form opens.\n\n  def link_1_click(self, **event_args):\n    \"\"\
+    \"This method is called when the link is clicked\"\"\"\n    description = self.item['Description']\n\
+    \    \n    current_time = \"\"\n    description = \"\"\n    \n    if self.item['Description']\
+    \ is not None:\n      description = self.item['Description']\n    \n    \n   \
+    \ if self.item['Done'] == True:\n      current_time = datetime.datetime.strptime(self.item['Completed_On'],\"\
+    %Y-%m-%d %H:%M:%S.%f\").strftime('%b %d %Y at %I:%M%p')\n      alert(description\
+    \ + '\\nTask completed on: ' + current_time)\n    \n      \n    \n#     pass\n\
+    \n  def check_box_1_change(self, **event_args):\n    \"\"\"This method is called\
+    \ when this checkbox is checked or unchecked\"\"\"\n    \n    if self.item['Done']\
+    \ == True:\n      self.item['Completed_On'] = str(datetime.datetime.now())\n \
+    \   \n      notification = Notification(\"Description: \" + str(self.item['Description']),\
+    \ title=\"Completed Task:\" + \n                                str(self.item['Task']),\
+    \ style='success')\n      notification.show()\n    pass\n\n  def link_edit_click(self,\
+    \ **event_args):\n    \"\"\"This method is called when the link is clicked\"\"\
+    \"\n    alert(TaskEdit(item=self.item), title=\"Edit Task Details\", large=True)\n\
+    \    self.refresh_data_bindings()\n    pass\n\n  def delete_link_click(self, **event_args):\n\
+    \    \"\"\"This method is called when the link is clicked\"\"\"\n    self.item.delete()\n\
+    \    self.remove_from_parent()\n    pass\n\n\n\n\n"
+  class_name: allTasks.allTasksTemplate
+  id: TDB4TTFUNRVSNKRRYNTOIQGH5H3V3NSP
+startup: {type: form, module: allTasks}
+package_name: TODO_app
+allow_embedding: true
+name: TODO app
+runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
+  server_spec: null}
+metadata: {}
+startup_form: TaskEdit
+db_schema:
+  todos:
+    title: TODOS
+    client: full
+    server: full
+    columns:
+    - name: Task
+      admin_ui: {width: 200}
+      type: string
+    - name: Description
+      admin_ui: {width: 200}
+      type: string
+    - name: Done
+      admin_ui: {width: 200}
+      type: bool
+    - name: Completed_On
+      admin_ui: {width: 200}
+      type: string
+dependency_order: []
+dependency_code: {}
+theme:
+  templates:
+  - name: Standard Page
+    description: A page with an app bar and an optional sidebar.
+    img: img/form-templates/material-design.png
+    form:
+      class_name: Form
+      is_package: true
+      container:
+        type: HtmlTemplate
+        properties: {html: '@theme:standard-page.html'}
+      components:
+      - type: ColumnPanel
+        properties: {}
+        name: content_panel
+        layout_properties: {slot: default}
+      - type: FlowPanel
+        properties: {}
+        name: navbar_links
+        layout_properties: {slot: nav-right}
+      code: "from ._anvil_designer import $NAME$Template\nfrom anvil import *\n\n\
+        class $NAME$($NAME$Template):\n\n  def __init__(self, **properties):\n   \
+        \ # Set Form properties and Data Bindings.\n    self.init_components(**properties)\n\
+        \n    # Any code you write here will run before the form opens.\n    \n"
+  parameters:
+    roles:
+    - name: text
+      components: [Label, Link]
+    - name: subheading
+      components: [Label]
+    - name: input-prompt
+      components: [Label]
+    - name: headline
+      components: [Label]
+      displayInToolbox: true
+      title: Headline
+      display_in_toolbox: true
+    - name: display-4
+      components: [Label]
+    - name: card
+      components: [ColumnPanel, LinearPanel, XYPanel, RepeatingPanel]
+      displayInToolbox: true
+      title: Card
+      display_in_toolbox: true
+    - name: raised
+      components: [Button, FileLoader]
+    - name: primary-color
+      components: [Button, FileLoader]
+      title: Highlighted Button
+      display_in_toolbox: true
+    - name: secondary-color
+      components: [Button, FileLoader]
+    - name: dense
+      components: [TextBox]
+    - name: selected
+      components: [Link]
+    color_scheme:
+      preset_groups:
+      - name: Primary Colour
+        options:
+        - name: Blue
+          colors:
+          - {name: Primary 500, color: '#2196F3'}
+          - {name: Primary 700, color: '#1976D2'}
+        - name: Orange
+          colors:
+          - {name: Primary 500, color: '#FF9800'}
+          - {name: Primary 700, color: '#F57C00'}
+        - name: Red
+          colors:
+          - {name: Primary 500, color: '#F44336'}
+          - {name: Primary 700, color: '#D32F2F'}
+        - name: Pink
+          colors:
+          - {name: Primary 500, color: '#E91E63'}
+          - {name: Primary 700, color: '#C2185B'}
+        - name: Purple
+          colors:
+          - {name: Primary 500, color: '#9C27B0'}
+          - {name: Primary 700, color: '#7B1FA2'}
+        - name: Deep Purple
+          colors:
+          - {name: Primary 500, color: '#673AB7'}
+          - {name: Primary 700, color: '#512DA8'}
+        - name: Indigo
+          colors:
+          - {name: Primary 500, color: '#3F51B5'}
+          - {name: Primary 700, color: '#303F9F'}
+        - name: Light Blue
+          colors:
+          - {name: Primary 500, color: '#03A9F4'}
+          - {name: Primary 700, color: '#0288D1'}
+        - name: Cyan
+          colors:
+          - {name: Primary 500, color: '#00BCD4'}
+          - {name: Primary 700, color: '#0097A7'}
+        - name: Teal
+          colors:
+          - {name: Primary 500, color: '#009688'}
+          - {name: Primary 700, color: '#00796B'}
+        - name: Green
+          colors:
+          - {name: Primary 500, color: '#4CAF50'}
+          - {name: Primary 700, color: '#388E3C'}
+        - name: Light Green
+          colors:
+          - {name: Primary 500, color: '#8BC34A'}
+          - {name: Primary 700, color: '#689F38'}
+        - name: Lime
+          colors:
+          - {name: Primary 500, color: '#CDDC39'}
+          - {name: Primary 700, color: '#AFB42B'}
+        - name: Deep orange
+          colors:
+          - {name: Primary 500, color: '#FF5722'}
+          - {name: Primary 700, color: '#E64A19'}
+        - name: Brown
+          colors:
+          - {name: Primary 500, color: '#795548'}
+          - {name: Primary 700, color: '#5D4037'}
+        - name: Grey
+          colors:
+          - {name: Primary 500, color: '#9E9E9E'}
+          - {name: Primary 700, color: '#616161'}
+      - name: Secondary Colour
+        options:
+        - name: Blue
+          colors:
+          - {name: Secondary 500, color: '#2196F3'}
+          - {name: Secondary 700, color: '#1976D2'}
+        - name: Orange
+          colors:
+          - {name: Secondary 500, color: '#FF9800'}
+          - {name: Secondary 700, color: '#F57C00'}
+        - name: Red
+          colors:
+          - {name: Secondary 500, color: '#F44336'}
+          - {name: Secondary 700, color: '#D32F2F'}
+        - name: Pink
+          colors:
+          - {name: Secondary 500, color: '#E91E63'}
+          - {name: Secondary 700, color: '#C2185B'}
+        - name: Purple
+          colors:
+          - {name: Secondary 500, color: '#9C27B0'}
+          - {name: Secondary 700, color: '#7B1FA2'}
+        - name: Deep Purple
+          colors:
+          - {name: Secondary 500, color: '#673AB7'}
+          - {name: Secondary 700, color: '#512DA8'}
+        - name: Indigo
+          colors:
+          - {name: Secondary 500, color: '#3F51B5'}
+          - {name: Secondary 700, color: '#303F9F'}
+        - name: Light Blue
+          colors:
+          - {name: Secondary 500, color: '#03A9F4'}
+          - {name: Secondary 700, color: '#0288D1'}
+        - name: Cyan
+          colors:
+          - {name: Secondary 500, color: '#00BCD4'}
+          - {name: Secondary 700, color: '#0097A7'}
+        - name: Teal
+          colors:
+          - {name: Secondary 500, color: '#009688'}
+          - {name: Secondary 700, color: '#00796B'}
+        - name: Green
+          colors:
+          - {name: Secondary 500, color: '#4CAF50'}
+          - {name: Secondary 700, color: '#388E3C'}
+        - name: Light Green
+          colors:
+          - {name: Secondary 500, color: '#8BC34A'}
+          - {name: Secondary 700, color: '#689F38'}
+        - name: Lime
+          colors:
+          - {name: Secondary 500, color: '#CDDC39'}
+          - {name: Secondary 700, color: '#AFB42B'}
+        - name: Deep orange
+          colors:
+          - {name: Secondary 500, color: '#FF5722'}
+          - {name: Secondary 700, color: '#E64A19'}
+        - name: Brown
+          colors:
+          - {name: Secondary 500, color: '#795548'}
+          - {name: Secondary 700, color: '#5D4037'}
+        - name: Grey
+          colors:
+          - {name: Secondary 500, color: '#9E9E9E'}
+          - {name: Secondary 700, color: '#616161'}
+      colors:
+      - {name: Primary 500, color: '#2196F3'}
+      - {name: Primary 700, color: '#1976D2'}
+      - {name: Secondary 500, color: '#FF9800'}
+      - {name: Secondary 700, color: '#F57C00'}
+      - {name: White, color: '#FFFFFF'}
+      - {name: Gray 50, color: '#FAFAFA'}
+      - {name: Gray 100, color: '#F5F5F5'}
+      - {name: Gray 200, color: '#EEEEEE'}
+      - {name: Gray 300, color: '#E0E0E0'}
+      - {name: Gray 600, color: '#757575'}
+      - {name: Gray 800, color: '#424242'}
+      - {name: Gray 900, color: '#212121'}
+      - {name: Black, color: '#000000'}
+  assets:
+  - {name: standard-page.html, content: PGxpbmsgaHJlZj0iaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJvYm90bzozMDAsNDAwLDUwMCIgcmVsPSJzdHlsZXNoZWV0IiByZWw9InByZWxvYWQiIGFzPSJmb250IiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj4KCjxkaXYgY2xhc3M9InN0cnVjdHVyZSI+CiAgPGRpdiBjbGFzcz0iYXBwLWJhciIgYW52aWwtZHJvcC1jb250YWluZXI9Ii5hbnZpbC1jb250YWluZXIiIGFudmlsLWRyb3AtcmVkaXJlY3Q9Ii5wbGFjZWhvbGRlciI+CiAgICA8YSBjbGFzcz0ic2lkZWJhci10b2dnbGUiIGFudmlsLWlmLXNsb3QtZW1wdHk9InRvcC1sZWZ0LWJ0biIgYW52aWwtaGlkZS1pZi1zbG90LWVtcHR5PSJsZWZ0LW5hdiIgYW52aWwtZHJvcC1zbG90PSJ0b3AtbGVmdC1idG4iIGhyZWY9ImphdmFzY3JpcHQ6dm9pZCgwKSI+PGkgY2xhc3M9ImZhIGZhLWJhcnMiPjwvaT48L2E+CiAgICA8YSBjbGFzcz0ic2lkZWJhci10b2dnbGUgYW52aWwtZGVzaWduZXItb25seSIgYW52aWwtaWYtc2xvdC1lbXB0eT0idG9wLWxlZnQtYnRuIiBhbnZpbC1pZi1zbG90LWVtcHR5PSJsZWZ0LW5hdiIgYW52aWwtZHJvcC1zbG90PSJ0b3AtbGVmdC1idG4iPjxpIGNsYXNzPSJmYSBmYS1ibGFuayI+PC9pPjwvYT4KICAgIDxkaXYgY2xhc3M9InRvcC1sZWZ0LWJ0biIgYW52aWwtc2xvdD0idG9wLWxlZnQtYnRuIj48L2Rpdj4KICAgIDxkaXYgY2xhc3M9InRpdGxlIiBhbnZpbC1zbG90PSJ0aXRsZSI+CiAgICAgIDxkaXYgY2xhc3M9InBsYWNlaG9sZGVyIGFudmlsLWRlc2lnbmVyLW9ubHkiIGFudmlsLWlmLXNsb3QtZW1wdHk9InRpdGxlIiBhbnZpbC1kcm9wLWhlcmU+RHJvcCB0aXRsZSBoZXJlPC9kaXY+CiAgICA8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImFwcC1iYXItbmF2IiBhbnZpbC1zbG90PSJuYXYtcmlnaHQiPgogICAgICA8ZGl2IGNsYXNzPSJwbGFjZWhvbGRlciBhbnZpbC1kZXNpZ25lci1vbmx5IiBhbnZpbC1pZi1zbG90LWVtcHR5PSJuYXYtcmlnaHQiIGFudmlsLWRyb3AtaGVyZT5Ecm9wIGEgRmxvd1BhbmVsIGhlcmU8L2Rpdj4KICAgIDwvZGl2PgogICAgPGRpdiBzdHlsZT0iY2xlYXI6Ym90aCI+PC9kaXY+CiAgPC9kaXY+CgogIDxkaXYgY2xhc3M9Im5hdi1ob2xkZXIiPgogICAgPGRpdiBjbGFzcz0ibGVmdC1uYXYgYW52aWwtbWVhc3VyZS10aGlzIiBhbnZpbC1zbG90LXJlcGVhdD0ibGVmdC1uYXYiIGFudmlsLWRyb3AtY29udGFpbmVyPSI+LmFudmlsLWNvbnRhaW5lciI+CiAgICA8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImxlZnQtbmF2LXBsYWNlaG9sZGVyIGFudmlsLWRlc2lnbmVyLW9ubHkiIGFudmlsLWlmLXNsb3QtZW1wdHk9ImxlZnQtbmF2IiBhbnZpbC1kcm9wLXNsb3Q9ImxlZnQtbmF2Ij4KICAgICAgPGRpdiBjbGFzcz0icHJvbXB0Ij5UbyBhZGQgYSBzaWRlYmFyLCBkcm9wIGEgQ29sdW1uUGFuZWwgaGVyZS48L2Rpdj4KICAgIDwvZGl2PgoKICAgIDxkaXYgY2xhc3M9ImNvbnRlbnQiPgogICAgICA8ZGl2IGFudmlsLXNsb3QtcmVwZWF0PSJkZWZhdWx0IiBjbGFzcz0iYW52aWwtbWVhc3VyZS10aGlzIj48L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0icGxhY2Vob2xkZXIgZHJvcC1oZXJlIiBhbnZpbC1pZi1zbG90LWVtcHR5PSJkZWZhdWx0IiBhbnZpbC1kcm9wLXNsb3Q9ImRlZmF1bHQiPkRyb3AgYSBDb2x1bW5QYW5lbCBoZXJlLjwvZGl2PgogICAgPC9kaXY+CiAgPC9kaXY+CiAgPGRpdiBjbGFzcz0ibmF2LXNoaWVsZCI+PC9kaXY+CjwvZGl2Pgo8ZGl2IGFudmlsLWRyb3AtZGVmYXVsdCBhbnZpbC1kcm9wLXJlZGlyZWN0PSIucGxhY2Vob2xkZXIiIGFudmlsLWRyb3AtY29udGFpbmVyPSIuYW52aWwtY29udGFpbmVyIj48L2Rpdj4KIAo8c2NyaXB0PgogIGZ1bmN0aW9uIGhpZGVTaWRlYmFyKCkgewogICAgdmFyIGxuID0gJCgnLnN0cnVjdHVyZSA+IC5uYXYtaG9sZGVyID4gLmxlZnQtbmF2Jyk7CiAgICBsbi5hbmltYXRlKHtsZWZ0OiAtbG4ub3V0ZXJXaWR0aCgpfSwgZnVuY3Rpb24oKSB7CiAgICAgIGxuLnJlbW92ZUNsYXNzKCJpbi10cmFuc2l0aW9uIHNob3duIikuYWRkQ2xhc3MoImhpZGRlbiIpOwogICAgICAkKCcubmF2LXNoaWVsZCcpLnJlbW92ZUNsYXNzKCJzaG93biIpOwogICAgICAkKHdpbmRvdykudHJpZ2dlcigncmVzaXplJyk7CiAgICB9KTsKICB9CiAgZnVuY3Rpb24gc2hvd1NpZGViYXIoKSB7CiAgICB2YXIgbG4gPSAkKCcuc3RydWN0dXJlID4gLm5hdi1ob2xkZXIgPiAubGVmdC1uYXYnKTsKICAgICQoJy5uYXYtc2hpZWxkJykuYWRkQ2xhc3MoInNob3duIik7CiAgICBsbi5hZGRDbGFzcygic2hvd24iKS5yZW1vdmVDbGFzcygiaGlkZGVuIikuY3NzKHtsZWZ0OiAiLTEwMCUifSkuY3NzKHtsZWZ0OiAtbG4ub3V0ZXJXaWR0aCgpfSkuYW5pbWF0ZSh7bGVmdDogMH0sIGZ1bmN0aW9uKCkgewogICAgICBsbi5yZW1vdmVDbGFzcygiaW4tdHJhbnNpdGlvbiIpOwogICAgfSk7CiAgICAkKHdpbmRvdykudHJpZ2dlcigncmVzaXplJyk7CiAgfQogICQoJy5zaWRlYmFyLXRvZ2dsZSwgLm5hdi1zaGllbGQnKS5vZmYoJ2NsaWNrJykub24oJ2NsaWNrJywgZnVuY3Rpb24oKSB7CiAgICB2YXIgbG4gPSAkKCcuc3RydWN0dXJlID4gLm5hdi1ob2xkZXIgPiAubGVmdC1uYXYnKTsKICAgIGlmIChsbi5pcygiOnZpc2libGUiKSB8fCAkKCcubmF2LXNoaWVsZCcpLmlzKCIuc2hvd24iKSkgewogICAgICBoaWRlU2lkZWJhcigpOwogICAgfSBlbHNlIGlmKCFsbi5pcygiOmVtcHR5IikpIHsKICAgICAgc2hvd1NpZGViYXIoKTsKICAgIH0KICB9KTsKICAkKCcubGVmdC1uYXYnKS5vZmYoJ2NsaWNrJykub24oJ2NsaWNrJywgJ2EsIGJ1dHRvbicsIGZ1bmN0aW9uKCkgewogICAgaWYgKCQoJy5uYXYtc2hpZWxkJykuaXMoIjp2aXNpYmxlIikpIHsKICAgICAgJCgnLm5hdi1zaGllbGQnKS50cmlnZ2VyKCdjbGljaycpOwogICAgfQogIH0pOwo8L3NjcmlwdD4=,
+    id: OLLPQHRT5MARHESZ6AAEBHC3DMNZ2R7W}
+  - {name: theme.css, content: LyoqCiBUaGlzIENTUyBpbXBsZW1lbnRzIHRoZSBNYXRlcmlhbCBEZXNpZ24gbG9vayBhbmQgZmVlbCBmb3IgQW52aWwgYXBwcy4KICoqLwoKLyogU3RvcCBwYW5lbC1jb2xzIGN1dHRpbmcgb2ZmIGRyb3Agc2hhZG93cyAqLwouYW52aWwtcGFuZWwtY29sIHsKICBwYWRkaW5nLWJvdHRvbTogMTBweDsKICBtYXJnaW4tYm90dG9tOiAtMTBweDsKfQoKLmNvbnRlbnQgPiAucGxhY2Vob2xkZXIgewogIG1hcmdpbjogMTZweDsKICBjb2xvcjogIzg4ODsKICBmb250LXNpemU6IDE4cHg7CiAgb3V0bGluZTogMXB4IGRvdHRlZDsKICBwYWRkaW5nOiAxNnB4OwogIHRleHQtYWxpZ246IGNlbnRlcjsKfQoKLyogUHV0IHRoaW5ncyBvbiBhIDRweCBncmlkIChub25lIG9mIHRoaXMgN3B4IG5vbnNlbnNlKSAqLwouaGFzLXRleHQgLmFudmlsLWNvbXBvbmVudC1pY29uLmxlZnQtaWNvbiB7IG1hcmdpbi1yaWdodDogOHB4OyB9Ci5oYXMtdGV4dCAuYW52aWwtY29tcG9uZW50LWljb24ucmlnaHQtaWNvbiB7IG1hcmdpbi1sZWZ0OiA4cHg7IH0KCmE+LmFudmlsLWNvbXBvbmVudC1pY29uLmxlZnRfZWRnZS1pY29uLAphPi5hbnZpbC1jb21wb25lbnQtaWNvbi5yaWdodF9lZGdlLWljb24sCi5hbnZpbC1sYWJlbD4uYW52aWwtY29tcG9uZW50LWljb24ubGVmdF9lZGdlLWljb24sCi5hbnZpbC1sYWJlbD4uYW52aWwtY29tcG9uZW50LWljb24ucmlnaHRfZWRnZS1pY29uIHsKICBwYWRkaW5nLXRvcDogOHB4OwogIHBhZGRpbmctYm90dG9tOiA4cHg7Cn0KLmFudmlsLWxhYmVsPi5sYWJlbC10ZXh0LCBhPi5saW5rLXRleHQgewogIHBhZGRpbmctdG9wOiA4cHg7CiAgcGFkZGluZy1ib3R0b206IDhweDsKfQouZmlsZS1sb2FkZXI+bGFiZWwgewogICAgcGFkZGluZzogOHB4Owp9Ci5jaGVja2JveCBsYWJlbCwgLnJhZGlvIGxhYmVsIHsKICAgIHBhZGRpbmctdG9wOiA4cHg7IHBhZGRpbmctcmlnaHQ6IDhweDsgcGFkZGluZy1ib3R0b206IDhweDsKfQouYW52aWwtc3BhY2luZy1hYm92ZS1ub25lIHsgbWFyZ2luLXRvcDogMHB4OyB9Ci5hbnZpbC1zcGFjaW5nLWFib3ZlLXNtYWxsIHsgbWFyZ2luLXRvcDogNHB4OyB9Ci5hbnZpbC1zcGFjaW5nLWFib3ZlLW1lZGl1bSB7IG1hcmdpbi10b3A6IDhweDsgfQouYW52aWwtc3BhY2luZy1hYm92ZS1sYXJnZSB7IG1hcmdpbi10b3A6IDE2cHg7IH0KLmFudmlsLXNwYWNpbmctYmVsb3ctbm9uZSB7IG1hcmdpbi1ib3R0b206IDBweDsgfQouYW52aWwtc3BhY2luZy1iZWxvdy1zbWFsbCB7IG1hcmdpbi1ib3R0b206IDRweDsgfQouYW52aWwtc3BhY2luZy1iZWxvdy1tZWRpdW0geyBtYXJnaW4tYm90dG9tOiA4cHg7IH0KLmFudmlsLXNwYWNpbmctYmVsb3ctbGFyZ2UgeyBtYXJnaW4tYm90dG9tOiAxNnB4OyB9CgoKLmNvbC1wYWRkaW5nLmNvbC1wYWRkaW5nLXRpbnkgeyBwYWRkaW5nOiAwIDJweDsgfQouY29sdW1uLXBhbmVsLmNvbC1wYWRkaW5nLXRpbnkgPiAuYW52aWwtcGFuZWwtc2VjdGlvbiA+IC5hbnZpbC1wYW5lbC1zZWN0aW9uLWNvbnRhaW5lciA+IC5hbnZpbC1wYW5lbC1zZWN0aW9uLWd1dHRlciB7IG1hcmdpbjogMCAtMnB4OyB9CgouY29sLXBhZGRpbmcuY29sLXBhZGRpbmctc21hbGwgeyBwYWRkaW5nOiAwIDRweDsgfQouY29sdW1uLXBhbmVsLmNvbC1wYWRkaW5nLXNtYWxsID4gLmFudmlsLXBhbmVsLXNlY3Rpb24gPiAuYW52aWwtcGFuZWwtc2VjdGlvbi1jb250YWluZXIgPiAuYW52aWwtcGFuZWwtc2VjdGlvbi1ndXR0ZXIgeyBtYXJnaW46IDAgLTRweDsgfQoKLmNvbC1wYWRkaW5nLmNvbC1wYWRkaW5nLW1lZGl1bSB7IHBhZGRpbmc6IDAgOHB4OyB9Ci5jb2x1bW4tcGFuZWwuY29sLXBhZGRpbmctbWVkaXVtID4gLmFudmlsLXBhbmVsLXNlY3Rpb24gPiAuYW52aWwtcGFuZWwtc2VjdGlvbi1jb250YWluZXIgPiAuYW52aWwtcGFuZWwtc2VjdGlvbi1ndXR0ZXIgeyBtYXJnaW46IDAgLThweDsgfQoKLmNvbC1wYWRkaW5nLmNvbC1wYWRkaW5nLWxhcmdlIHsgcGFkZGluZzogMCAxMnB4OyB9Ci5jb2x1bW4tcGFuZWwuY29sLXBhZGRpbmctbGFyZ2UgPiAuYW52aWwtcGFuZWwtc2VjdGlvbiA+IC5hbnZpbC1wYW5lbC1zZWN0aW9uLWNvbnRhaW5lciA+IC5hbnZpbC1wYW5lbC1zZWN0aW9uLWd1dHRlciB7IG1hcmdpbjogMCAtMTJweDsgfQoKLmNvbC1wYWRkaW5nLmNvbC1wYWRkaW5nLWh1Z2UgeyBwYWRkaW5nOiAwIDIwcHg7IH0KLmNvbHVtbi1wYW5lbC5jb2wtcGFkZGluZy1odWdlID4gLmFudmlsLXBhbmVsLXNlY3Rpb24gPiAuYW52aWwtcGFuZWwtc2VjdGlvbi1jb250YWluZXIgPiAuYW52aWwtcGFuZWwtc2VjdGlvbi1ndXR0ZXIgeyBtYXJnaW46IDAgLTIwcHg7IH0KCi5mbG93LXBhbmVsLmZsb3ctc3BhY2luZy10aW55ID4gLmZsb3ctcGFuZWwtZ3V0dGVyIHsgbWFyZ2luOiAwIC0ycHg7IH0KLmZsb3ctcGFuZWwuZmxvdy1zcGFjaW5nLXRpbnkgPiAuZmxvdy1wYW5lbC1ndXR0ZXIgPiAuZmxvdy1wYW5lbC1pdGVtIHsgCiAgbWFyZ2luLWxlZnQ6IDJweDsKICBtYXJnaW4tcmlnaHQ6IDJweDsKfQoKLmZsb3ctcGFuZWwuZmxvdy1zcGFjaW5nLXNtYWxsID4gLmZsb3ctcGFuZWwtZ3V0dGVyIHsgbWFyZ2luOiAwIC00cHg7IH0KLmZsb3ctcGFuZWwuZmxvdy1zcGFjaW5nLXNtYWxsID4gLmZsb3ctcGFuZWwtZ3V0dGVyID4gLmZsb3ctcGFuZWwtaXRlbSB7IAogIG1hcmdpbi1sZWZ0OiA0cHg7CiAgbWFyZ2luLXJpZ2h0OiA0cHg7Cn0KCi5mbG93LXBhbmVsLmZsb3ctc3BhY2luZy1tZWRpdW0gPiAuZmxvdy1wYW5lbC1ndXR0ZXIgeyBtYXJnaW46IDAgLThweDsgfQouZmxvdy1wYW5lbC5mbG93LXNwYWNpbmctbWVkaXVtID4gLmZsb3ctcGFuZWwtZ3V0dGVyID4gLmZsb3ctcGFuZWwtaXRlbSB7IAogIG1hcmdpbi1sZWZ0OiA4cHg7CiAgbWFyZ2luLXJpZ2h0OiA4cHg7Cn0KCi5mbG93LXBhbmVsLmZsb3ctc3BhY2luZy1sYXJnZSA+IC5mbG93LXBhbmVsLWd1dHRlciB7IG1hcmdpbjogMCAtMTJweDsgfQouZmxvdy1wYW5lbC5mbG93LXNwYWNpbmctbGFyZ2UgPiAuZmxvdy1wYW5lbC1ndXR0ZXIgPiAuZmxvdy1wYW5lbC1pdGVtIHsgCiAgbWFyZ2luLWxlZnQ6IDEycHg7CiAgbWFyZ2luLXJpZ2h0OiAxMnB4Owp9CgouZmxvdy1wYW5lbC5mbG93LXNwYWNpbmctaHVnZSA+IC5mbG93LXBhbmVsLWd1dHRlciB7IG1hcmdpbjogMCAtMjBweDsgfQouZmxvdy1wYW5lbC5mbG93LXNwYWNpbmctaHVnZSA+IC5mbG93LXBhbmVsLWd1dHRlciA+IC5mbG93LXBhbmVsLWl0ZW17IAogIG1hcmdpbi1sZWZ0OiAyMHB4OwogIG1hcmdpbi1yaWdodDogMjBweDsKfQoKCi8qIFR5cG9ncmFwaHkgKi8KYm9keSB7CiAgZm9udC1mYW1pbHk6IFJvYm90bywgTm90bywgQXJpYWwsIHNhbnMtc2VyaWY7CiAgZm9udC1zaXplOiAxNHB4OwogIGxpbmUtaGVpZ2h0OiAxLjQyODY7CiAgYmFja2dyb3VuZC1jb2xvcjogI2ZhZmFmYTsKfQoKQG1lZGlhIHByaW50IHsKICBib2R5IHsKICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlOwogIH0KfQoKYSwgYTpmb2N1cyB7CiAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogIGNvbG9yOiAlY29sb3I6UHJpbWFyeSA3MDAlOwp9CgphOmhvdmVyLCBhOmFjdGl2ZSB7CiAgY29sb3I6ICVjb2xvcjpQcmltYXJ5IDUwMCU7Cn0KCi5hbnZpbC1sYWJlbCB7Ci8qICBmb250LXNpemU6IDE2cHg7Ki8KfQoKLmFudmlsLXJvbGUtc3ViaGVhZGluZyB7CiAgZm9udC1zaXplOiAxNnB4OwogIGxpbmUtaGVpZ2h0OiAyNGRwOwp9CgouYW52aWwtcm9sZS1oZWFkbGluZSB7CiAgZm9udC1zaXplOiAyNHB4OwogIGxpbmUtaGVpZ2h0OiAzMnB4Owp9CgouYW52aWwtcm9sZS1pbnB1dC1wcm9tcHQgewogIGZvbnQtc2l6ZTogMTZweDsKICBsaW5lLWhlaWdodDogMS41Owp9CgouYW52aWwtcm9sZS1kaXNwbGF5LTQgewogIGZvbnQtc2l6ZTogMTEycHg7CiAgZm9udC13ZWlnaHQ6IGxpZ2h0Owp9CgouYW52aWwtcm9sZS10ZXh0IHsKICBmb250LXNpemU6IDE0cHg7Cn0KLmFudmlsLXJvbGUtdGV4dCA+IC5sYWJlbC10ZXh0LCAuYW52aWwtcm9sZS10ZXh0IC5saW5rLXRleHQgewogIHBhZGRpbmctdG9wOiAwOwogIHBhZGRpbmctYm90dG9tOiAwOwp9CgovKiBQYWdlIHN0cnVjdHVyZTogQXBwIGJhciB3aXRoIG9wdGlvbmFsIGxlZnQgbmF2ICovCi5zdHJ1Y3R1cmUgewogIGRpc3BsYXk6IGZsZXg7CiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsKICBtaW4taGVpZ2h0OiAxMDB2aDsKICBtaW4taGVpZ2h0OiBjYWxjKDEwMHZoIC0gJWFudmlsLWJhbm5lci1oZWlnaHQlKTsKICBoZWlnaHQ6IDA7IC8qIFRvIG1ha2UgZmxleC1ncm93IHdvcmsgaW4gSUUgKi8KfQoKLyogSG93ZXZlciwgdGhpcyBicmVha3MgdGhlIGRlc2lnbmVyJ3MgaGVpZ2h0IG1lYXN1cmVtZW50LiBJRSBpc24ndCBzdXBwb3J0ZWQgZm9yIHRoZSBkZXNpZ25lciwgc28gc2V0IGl0IGJhY2suICovCi5kZXNpZ25lciAuc3RydWN0dXJlIHsKICBoZWlnaHQ6IGluaXRpYWw7Cn0KCi5hcHAtYmFyIHsKICBmbGV4OiAwIDA7CiAgZmxleC1iYXNpczogYXV0bzsKICBmbGV4LWJhc2lzOiBjb250ZW50Owp9CgoubmF2LWhvbGRlciB7CiAgZmxleC1ncm93OiAxOwogIG92ZXJmbG93LXk6IGF1dG87Cn0KCkBtZWRpYSBwcmludCB7CiAgLm5hdi1ob2xkZXIgewogICAgb3ZlcmZsb3cteTogaW5pdGlhbDsKICB9Cn0KCgovKiBNb2JpbGUgYW5kIGRlc2t0b3AgbWFyZ2lucyBmb3IgY29udGVudCAqLwouY29udGVudCA+ICogPiAuYW52aWwtY29udGFpbmVyIHsKICBwYWRkaW5nOiA4cHg7Cn0KCkBtZWRpYShtaW4td2lkdGg6OTkxcHgpIHsKICAuY29udGVudCA+ICogPiAuYW52aWwtY29udGFpbmVyIHsKICAgIHBhZGRpbmc6IDE2cHggMjRweDsKICB9Cn0KCi5jb250ZW50IC5hbnZpbC1tZWFzdXJlLXRoaXMgewogIHBhZGRpbmctYm90dG9tOiAxcHg7IC8qIFByZXZlbnQgbWFyZ2luIGNvbGxhcHNlIG1lc3NpbmcgdXAgZW1iZWRkaW5nICovCn0KCi8qIEFsbG93IG92ZXJmbG93cyB0byBzaG93IGRyb3Agc2hhZG93cyBpbiBDb2x1bW5QYW5lbHMKICAgVGhpcyBjYW4gY3JlYXRlIHVud2FudGVkIHNjcm9sbGJhcnM7IHdlIGNvbXBlbnNhdGUgZm9yIHRoaXMgYXQgdGhlIHRvcCBsZXZlbCB3aXRoIC5uYXYtaG9sZGVyIC5jb250ZW50IHtvdmVyZmxvdy14OiBoaWRkZW47fQoqLwouYW52aWwtY29udGFpbmVyLW92ZXJmbG93IHsKICBvdmVyZmxvdy14OiB2aXNpYmxlOwogIG92ZXJmbG93LXk6IHZpc2libGU7Cn0KCgovKiBEZXNrdG9wOiBOYXYgYmFyIHBpbm5lZCAqLwoKLm5hdi1ob2xkZXIgewogIGRpc3BsYXk6IGZsZXg7CiAgZmxleC1kaXJlY3Rpb246IHJvdzsKfQoKLm5hdi1ob2xkZXIgLmxlZnQtbmF2IHsKICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgZmxleC1zaHJpbms6IDA7CiAgbWluLXdpZHRoOiAxNjBweDsKICBtYXgtd2lkdGg6IDQwMHB4Owp9CgoubmF2LXNoaWVsZCB7CiAgZGlzcGxheTogbm9uZTsKfQoKLyogTW9iaWxlOiBOYXYgYmFyIGlzIGEgbW9kYWwgb3ZlcmxheSAqLwoKQG1lZGlhKG1heC13aWR0aDo5OThweCkgewogIGh0bWw6bm90KC5kZXNpZ25lcikgLm5hdi1ob2xkZXIgewogICAgZGlzcGxheTogYmxvY2s7CiAgfQogIGh0bWw6bm90KC5kZXNpZ25lcikgLm5hdi1ob2xkZXIgLmxlZnQtbmF2IHsKICAgIHBvc2l0aW9uOiBmaXhlZDsKICAgIHRvcDogMDsKICAgIGJvdHRvbTogMDsKICAgIHdpZHRoOiBjYWxjKDEwMCUgLSA1NnB4KTsKICAgIG1heC13aWR0aDogMzYwcHg7CiAgICB6LWluZGV4OiAzOwogICAgYm9yZGVyLXJpZ2h0OiBub25lOwogIC8qIDE2ZHAgKi8gYm94LXNoYWRvdzogMCAxNnB4IDI0cHggMnB4IHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgNnB4IDMwcHggNXB4IHJnYmEoMCwgMCwgMCwgMC4xMiksIDAgOHB4IDEwcHggLTVweCByZ2JhKDAsIDAsIDAsIDAuMik7CgogICAgZGlzcGxheTogbm9uZTsKICAgIHRyYW5zaXRpb246IHJpZ2h0IDAuNXM7CiAgfQogIAogIGh0bWw6bm90KC5kZXNpZ25lcikgLm5hdi1ob2xkZXIgLmxlZnQtbmF2LnNob3duIHsKICAgIGRpc3BsYXk6IGJsb2NrOwogIH0KICAubmF2LXNoaWVsZC5zaG93biB7CiAgICBkaXNwbGF5OiBibG9jazsKICAgIHBvc2l0aW9uOiBmaXhlZDsKICAgIHRvcDogMDsKICAgIGJvdHRvbTogMDsKICAgIGxlZnQ6IDA7CiAgICByaWdodDogMDsKICAgIHotaW5kZXg6IDI7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuMik7CiAgfQogfQoKLm5hdi1ob2xkZXIgLmxlZnQtbmF2LCAubGVmdC1uYXYtcGxhY2Vob2xkZXIgewogIGRpc3BsYXk6IGZsZXg7CiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsKICBiYWNrZ3JvdW5kOiB3aGl0ZTsKICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjZTBlMGUwOwogIGZvbnQtc2l6ZTogMTRweDsKICBmb250LXdlaWdodDogNTAwOwogIGNvbG9yOiByZ2JhKDAsMCwwLDAuODcpOwogIG92ZXJmbG93LXg6IGhpZGRlbjsKICBvdmVyZmxvdy15OiBhdXRvOwp9CgoubGVmdC1uYXYtcGxhY2Vob2xkZXIgewogIGRpc3BsYXk6IGJsb2NrOwogIHBhZGRpbmc6IDhweDsKICBsaW5lLWhlaWdodDogMTsKICB3aWR0aDogNThweDsKfQoubGVmdC1uYXYtcGxhY2Vob2xkZXIgLnByb21wdCB7CiAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogIHdoaXRlLXNwYWNlOiBub3dyYXA7CiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwwKSByb3RhdGUoLTkwZGVnKSB0cmFuc2xhdGUoLTUwJSwwKSB0cmFuc2xhdGUoMTVweCwxNnB4KTsKICBwYWRkaW5nOiAxNnB4IDE2cHg7CiAgY29sb3I6ICM4ODg7CiAgb3V0bGluZTogMXB4IGRvdHRlZCAjODg4OwogIHZpc2liaWxpdHk6IGhpZGRlbjsKfQouYW52aWwtaGlnaGxpZ2h0IC5sZWZ0LW5hdi1wbGFjZWhvbGRlciAucHJvbXB0IHsKICB2aXNpYmlsaXR5OiB2aXNpYmxlOwp9CgoubGVmdC1uYXYgPiAuY29sdW1uLXBhbmVsIHsKICBwYWRkaW5nOiAyNHB4IDA7Cn0KLmxlZnQtbmF2ID4gLmNvbHVtbi1wYW5lbCA+IC5hbnZpbC1wYW5lbC1zZWN0aW9uID4gLmFudmlsLXBhbmVsLXNlY3Rpb24tY29udGFpbmVyOm5vdCguZnVsbC13aWR0aC1yb3cpIHsKICBtYXJnaW46IDAgMTZweDsKICB3aWR0aDogaW5pdGlhbDsKICBtYXgtd2lkdGg6IGluaXRpYWw7CiAgb3ZlcmZsb3cteDogdmlzaWJsZTsKfQoubGVmdC1uYXYgPiAuY29sdW1uLXBhbmVsID4gLmFudmlsLXBhbmVsLXNlY3Rpb246Zmlyc3QtY2hpbGQgPiAuYW52aWwtcGFuZWwtc2VjdGlvbi1jb250YWluZXIuZnVsbC13aWR0aC1yb3cgewogIG1hcmdpbi10b3A6IC0yNHB4Owp9Ci5sZWZ0LW5hdiA+IC5jb2x1bW4tcGFuZWwgPiAuYW52aWwtcGFuZWwtc2VjdGlvbiA+IC5hbnZpbC1wYW5lbC1zZWN0aW9uLWNvbnRhaW5lciA+IC5hbnZpbC1wYW5lbC1zZWN0aW9uLWd1dHRlciA+IC5hbnZpbC1wYW5lbC1yb3cgPiAuYW52aWwtcGFuZWwtY29sIHsKICBvdmVyZmxvdy14OiB2aXNpYmxlOwp9CgovKiBNYWtlIGFsbCB0aGUgc2lkZWJhciBpY29ucyBsb29rIG5pY2UgKi8KCi5sZWZ0LW5hdiAuYW52aWwtY29tcG9uZW50LWljb24gewogIGZvbnQtc2l6ZTogMTYwJTsKfQoKLmxlZnQtbmF2IC5hbnZpbC1jb21wb25lbnQtaWNvbi5sZWZ0LWljb24gewogIHdpZHRoOiAwOwogIG1hcmdpbi1yaWdodDogNTZweDsKICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgdG9wOiAwLjE1ZW07ICAKfQoKLmxlZnQtbmF2IC5hbnZpbC1jb21wb25lbnQtaWNvbi5sZWZ0X2VkZ2UtaWNvbiwgLmxlZnQtbmF2IC5hbnZpbC1jb21wb25lbnQtaWNvbi5yaWdodF9lZGdlLWljb24gewogIGxlZnQ6IDE2cHg7CiAgcGFkZGluZy10b3A6IDJweDsKICB3aWR0aDogMDsKfQoKLmxlZnQtbmF2IC5hbnZpbC1jb21wb25lbnQtaWNvbi5yaWdodF9lZGdlLWljb24gewogIGxlZnQ6IGluaXRpYWw7CiAgcmlnaHQ6IDE2cHg7CiAgdG9wOiAwOwogIHBhZGRpbmctdG9wOiAycHg7Cn0KCi8qIFNpZGViYXIgbGlua3MgKGFuZCBsYWJlbHMgd2l0aCBlZGdlIGljb25zKSBnbyArMTZweCB3aWRlcgogICAoVG9wLWxldmVsIGNvbHVtbnMgaW4gQ29sdW1uUGFuZWxzIGdldCBvdmVyZmxvdy14IHZpc2libGUgW3NlZSBhYm92ZV10byBlbmFibGUgdGhpcykKKi8KCi5sZWZ0LW5hdiBhLCAubGVmdC1uYXYgLmFudmlsLWxhYmVsLmxlZnRfZWRnZS1pY29uLCAubGVmdC1uYXYgLmFudmlsLWxhYmVsLnJpZ2h0X2VkZ2UtaWNvbiB7CiAgY29sb3I6IHJnYmEoMCwwLDAsMC44Nyk7CiAgbWFyZ2luOiAwIC0xNnB4OwogIHBhZGRpbmc6IDRweCAxNnB4Owp9CgoubGVmdC1uYXYgLmFudmlsLWNvbXBvbmVudC5sZWZ0X2VkZ2UtaWNvbiB7CiAgcGFkZGluZy1sZWZ0OiA3MnB4Owp9CgoubGVmdC1uYXYgYTpob3ZlciwgLmxlZnQtbmF2IC5hbnZpbC1yb2xlLXNlbGVjdGVkIHsKICBjb2xvcjogJWNvbG9yOlByaW1hcnkgNzAwJTsKICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLC4wOCk7Cn0KCi5kZXNpZ25lciAubmF2LWhvbGRlciAubGVmdC1uYXYgewogIG1pbi13aWR0aDogNTZweDsKfQoKLmRlc2lnbmVyIC5uYXYtaG9sZGVyIC5sZWZ0LW5hdiA+IC5hbnZpbC1jb21wb25lbnQgewogIG1pbi13aWR0aDogMTYwcHg7Cn0KCi5uYXYtaG9sZGVyIC5sZWZ0LW5hdiA+IC5hbnZpbC1jb21wb25lbnQgewogIG1hcmdpbi10b3A6IDA7CiAgbWFyZ2luLWJvdHRvbTogMDsKfQoKLm5hdi1ob2xkZXIgLmNvbnRlbnQgewogIGZsZXg6IDE7CiAgb3ZlcmZsb3cteDogaGlkZGVuOwp9CgovKiBDb21wb25lbnRzOiBBcHAgQmFyICovCi5hcHAtYmFyIHsKICBtaW4taGVpZ2h0OiA1NnB4OwogIGxpbmUtaGVpZ2h0OiA0MHB4OwogIHBhZGRpbmc6IDAgMTZweCAwIDcycHg7CgogIGZvbnQtc2l6ZTogMjBweDsKICBmb250LXdlaWdodDogNTAwOwogIGNvbG9yOiB3aGl0ZTsKICBiYWNrZ3JvdW5kLWNvbG9yOiAlY29sb3I6UHJpbWFyeSA1MDAlOwogIAogIHotaW5kZXg6IDE7CiAgLyogNGRwICovIGJveC1zaGFkb3c6IDAgNHB4IDVweCAwIHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgMXB4IDEwcHggMCByZ2JhKDAsIDAsIDAsIDAuMTIpLCAwIDJweCA0cHggLTFweCByZ2JhKDAsIDAsIDAsIDAuMik7ICAKfQoKLmFwcC1iYXIgLmFudmlsLWNvbXBvbmVudCB7CiAgbWFyZ2luLXRvcDogMDsKICBtYXJnaW4tYm90dG9tOiAwOwp9CgouYXBwLWJhciA+IC5zaWRlYmFyLXRvZ2dsZSB7IGRpc3BsYXk6YmxvY2s7IGZsb2F0OmxlZnQ7ICBtYXJnaW4tbGVmdDogLTYxcHg7IH0KLmFwcC1iYXIgPiAudG9wLWxlZnQtYnRuIHsgZmxvYXQ6IGxlZnQ7IG1hcmdpbi1sZWZ0OiAtNjBweDsgbWFyZ2luLXJpZ2h0OiAtNDBweDsgfQouYXBwLWJhciA+IC50aXRsZSB7IGZsb2F0OiBsZWZ0OyB9Ci5hcHAtYmFyID4gLnRpdGxlID4gLnBsYWNlaG9sZGVyIHsgb3V0bGluZTogMXB4IGRvdHRlZDsgcGFkZGluZy1sZWZ0OiAxNnB4OyBwYWRkaW5nLXJpZ2h0OiAxNnB4OyBtYXJnaW46IDhweCA4cHggMDsgZGlzcGxheTpub25lOyB9Ci5hcHAtYmFyID4gLmFwcC1iYXItbmF2IHsgZmxvYXQ6IHJpZ2h0OyBmb250LXdlaWdodDogbm9ybWFsOyB9Ci5hcHAtYmFyID4gLmFwcC1iYXItbmF2IC5wbGFjZWhvbGRlciB7IG1hcmdpbi10b3A6IDhweDsgcGFkZGluZzogMCA4cHg7IH0KLmFudmlsLWhpZ2hsaWdodCAuYXBwLWJhciA+IC5hcHAtYmFyLW5hdiAucGxhY2Vob2xkZXIgeyBvdXRsaW5lOiAxcHggZG90dGVkICNjY2M7IH0KLmFudmlsLWhpZ2hsaWdodCAuYXBwLWJhciA+IC50aXRsZSA+IC5wbGFjZWhvbGRlciB7IGRpc3BsYXk6YmxvY2s7IH0KCi5hcHAtYmFyIGEsIC5hcHAtYmFyIC5hbnZpbC1jb21wb25lbnQgewogIGRpc3BsYXk6IGJsb2NrOwogIGNvbG9yOiB3aGl0ZTsKICBsaW5lLWhlaWdodDogMzBweDsKICBtaW4td2lkdGg6IDMwcHg7CiAgbWluLWhlaWdodDogMzBweDsKICBtYXJnaW46IDVweCA0cHggMDsKfQoKLmFwcC1iYXIgLnRpdGxlIC5hbnZpbC1jb21wb25lbnQgewogIG1hcmdpbi1sZWZ0OiAwOwp9CgouYXBwLWJhciBpbnB1dC5hbnZpbC1jb21wb25lbnQsIC5hcHAtYmFyIC5hbnZpbC1jb21wb25lbnQgaW5wdXQgewogIGxpbmUtaGVpZ2h0OiAzMHB4OwogIGNvbG9yOiB3aGl0ZTsKfQoKLmFwcC1iYXIgc2VsZWN0LmZvcm0tY29udHJvbCB7CiAgaGVpZ2h0OiA0M3B4OyAvKiAzMHB4IGxpbmUgaGVpZ2h0ICsgMTJweCBwYWRkaW5nICsgMXB4IGJvcmRlciAqLwp9CgouYXBwLWJhciAuYW52aWwtY29tcG9uZW50LWljb24tcHJlc2VudCAuYW52aWwtY29tcG9uZW50LWljb24sIC5hcHAtYmFyIC5zaWRlYmFyLXRvZ2dsZSAuZmEgewogIHdpZHRoOiAzMHB4OwogIHRleHQtYWxpZ246IGNlbnRlcjsKfQoKLyogRG9uJ3QgcHV0IHNwYWNpbmcgb24gdGhlIHRvcC1sZXZlbCBjb250YWluZXIgKGVnIEZsb3dQYW5lbCkgKi8KLmFwcC1iYXItbmF2ID4gLmFudmlsLWNvbnRhaW5lciB7CiAgbWFyZ2luOiAwOwogIHBhZGRpbmc6IDA7CiAgbWluLWhlaWdodDogNTZweDsKfQoKLmFudmlsLWhpZ2hsaWdodCAuYXBwLWJhci1uYXYgPiAuYW52aWwtY29udGFpbmVyOm5vdCguaGFzLWNvbXBvbmVudHMpOm5vdChhKSB7CiAgb3V0bGluZTogMXB4IGRvdHRlZCAjZmZmOwogIG1hcmdpbi10b3A6IDhweDsKICBtaW4taGVpZ2h0OiA0MHB4OwogIHBhZGRpbmc6IDVweCA4cHg7Cn0KCi5hbnZpbC1oaWdobGlnaHQgLmFwcC1iYXItbmF2ID4gLmFudmlsLWNvbnRhaW5lcjpub3QoLmhhcy1jb21wb25lbnRzKTpub3QoYSk6OmFmdGVyIHsgIAogIGNvbnRlbnQ6ICJEcm9wIExpbmtzIGhlcmUiCn0KCi8qIFJlamlnIG1hcmdpbiB2cyBwYWRkaW5nIHRvIGdpdmUgbGlua3MgdGhlIGhhbG8gKi8KLmFwcC1iYXIgYSwgLmFwcC1iYXIgYS5hbnZpbC1jb21wb25lbnQgewogIHBhZGRpbmc6IDVweDsKICBtYXJnaW46IDhweCAwIDA7CiAgYm9yZGVyLXJhZGl1czogMjBweDsKfQoKLmFwcC1iYXIgYSAubGluay10ZXh0IHsKICBwYWRkaW5nOiAwIDRweDsKfQouYXBwLWJhciBhLmhhcy10ZXh0IC5hbnZpbC1jb21wb25lbnQtaWNvbi5sZWZ0IHsKICBtYXJnaW4tcmlnaHQ6IDRweDsKfQouYXBwLWJhciBhLmhhcy10ZXh0IC5hbnZpbC1jb21wb25lbnQtaWNvbi5yaWdodCB7CiAgbWFyZ2luLWxlZnQ6IDRweDsKfQoKLmFwcC1iYXIgYTpob3ZlciwgLmFwcC1iYXIgYTphY3RpdmUgewogIGNvbG9yOiAjZWVlOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgYmFja2dyb3VuZC1jb2xvcjogJWNvbG9yOlByaW1hcnkgNzAwJTsKfQoKCi8qIENvbXBvbmVudDogRGlhbG9nIChhbGVydCksIE5vdGlmaWNhdGlvbiAqLwoubW9kYWwtY29udGVudCwgYm9keT5kaXZbZGF0YS1ub3RpZnk9ImNvbnRhaW5lciJdIHsKICBib3JkZXItcmFkaXVzOiAycHg7CiAgLyogMjRkcCAqLyBib3gtc2hhZG93OiAwIDlweCA0NnB4IDhweCByZ2JhKDAsIDAsIDAsIDAuMTQpLCAwIDExcHggMTVweCAtN3B4IHJnYmEoMCwgMCwgMCwgMC4xMiksIDAgMjRweCAzOHB4IDNweCByZ2JhKDAsIDAsIDAsIDAuMikKICAgICFpbXBvcnRhbnQ7Cn0KCi5tb2RhbC1oZWFkZXIgewogIHBhZGRpbmc6IDI0cHggMjRweCAwcHg7CiAgZm9udC1zaXplOiAyNHB4OwogIGxpbmUtaGVpZ2h0OiAzMnB4OwogIGJvcmRlcjogMDsKfQoKLm1vZGFsLWJvZHkgewogIHBhZGRpbmc6IDIwcHggMjRweCAyNHB4OwogIGZvbnQtc2l6ZTogMTZweDsKICBjb2xvcjogIzc0NzQ3NDsKfQoKLm1vZGFsLWZvb3RlciB7CiAgcGFkZGluZzogOHB4IDhweCA4cHggMjRweDsKICBib3JkZXI6IDA7Cn0KCi5tb2RhbC1mb290ZXIgLmJ0biB7CiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7CiAgY29sb3I6ICVjb2xvcjpQcmltYXJ5IDUwMCU7Cn0KLm1vZGFsLWZvb3RlciAuYnRuLCAubW9kYWwtZm9vdGVyIC5idG46Zm9jdXMsIC5tb2RhbC1mb290ZXIgLmJ0bjphY3RpdmUgewogIGJveC1zaGFkb3c6IG5vbmU7CiAgdG9wOiAwOwp9CgovKiBOb3RpZmljYXRpb25zICovCmJvZHk+ZGl2W2RhdGEtbm90aWZ5PSJjb250YWluZXIiXSB7CiAgYmFja2dyb3VuZDogd2hpdGU7CiAgYm9yZGVyOiBub25lOwogIHBhZGRpbmc6IDI0cHg7Cn0KCmJvZHk+ZGl2W2RhdGEtbm90aWZ5PSJjb250YWluZXIiXT5zcGFuW2RhdGEtbm90aWZ5PSJ0aXRsZSJdIHsKICBkaXNwbGF5OiBibG9jazsKICBmb250LXNpemU6IDE4cHg7CiAgZm9udC13ZWlnaHQ6IDUwMDsKICBjb2xvcjogIzMzMzMzMzsKfQoKYm9keT5kaXZbZGF0YS1ub3RpZnk9ImNvbnRhaW5lciJdPnNwYW5bZGF0YS1ub3RpZnk9Im1lc3NhZ2UiXSB7CiAgZGlzcGxheTogYmxvY2s7CiAgcGFkZGluZzogMjBweCAwIDA7CiAgZm9udC1zaXplOiAxNnB4OwogIGNvbG9yOiAjNzQ3NDc0OyAgCn0KCmJvZHk+ZGl2W2RhdGEtbm90aWZ5PSJjb250YWluZXIiXS5hbGVydC1zdWNjZXNzewogIGJhY2tncm91bmQtY29sb3I6ICNkNGVkZGE7Cn0KCmJvZHk+ZGl2W2RhdGEtbm90aWZ5PSJjb250YWluZXIiXS5hbGVydC1zdWNjZXNzPnNwYW5bZGF0YS1ub3RpZnk9InRpdGxlIl17CiAgY29sb3I6ICMxNTU3MjQ7Cn0KCmJvZHk+ZGl2W2RhdGEtbm90aWZ5PSJjb250YWluZXIiXS5hbGVydC1kYW5nZXJ7CiAgYmFja2dyb3VuZC1jb2xvcjogI2Y4ZDdkYTsKfQoKYm9keT5kaXZbZGF0YS1ub3RpZnk9ImNvbnRhaW5lciJdLmFsZXJ0LWRhbmdlcj5zcGFuW2RhdGEtbm90aWZ5PSJ0aXRsZSJdewogIGNvbG9yOiAjNzIxYzI0Owp9Cgpib2R5PmRpdltkYXRhLW5vdGlmeT0iY29udGFpbmVyIl0uYWxlcnQtd2FybmluZ3sKICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmM2NkOwp9Cgpib2R5PmRpdltkYXRhLW5vdGlmeT0iY29udGFpbmVyIl0uYWxlcnQtd2FybmluZz5zcGFuW2RhdGEtbm90aWZ5PSJ0aXRsZSJdewogIGNvbG9yOiAjODU2NDA0Owp9CgoKLyogQ29tcG9uZW50OiBCdXR0b24gKi8KCi5idG4sIC5idG4tZGVmYXVsdCwgLmZpbGUtbG9hZGVyPmxhYmVsIHsKICBib3JkZXItcmFkaXVzOiAycHg7CiAgZm9udC1zaXplOiAxNHB4OwogIGZvbnQtd2VpZ2h0OiA1MDA7CiAgcGFkZGluZzogOHB4IDE2cHg7CiAgbWluLWhlaWdodDogY2FsYygxNnB4ICsgMS40Mjg1NzE0M2VtKTsKICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOwoKICBib3JkZXI6IDA7CiAgYmFja2dyb3VuZC1pbWFnZTogbm9uZTsKICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICBjb2xvcjogJWNvbG9yOlByaW1hcnkgNTAwJTsKICB0ZXh0LXNoYWRvdzogbm9uZTsKICBib3gtc2hhZG93OiBub25lOwogIC13ZWJraXQtYm94LXNoYWRvdzogbm9uZTsKICAKICBwb3NpdGlvbjogcmVsYXRpdmU7Cn0KCi5idG46aG92ZXIsIC5idG46Zm9jdXMsIC5maWxlLWxvYWRlcj5sYWJlbDpob3ZlciB7CiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxNTMsMTUzLDE1MywwLjIpOwogIGJhY2tncm91bmQtaW1hZ2U6IG5vbmU7CiAgb3V0bGluZTogbm9uZTsKICBjb2xvcjogJWNvbG9yOlByaW1hcnkgNTAwJTsKfQoKLmJ0bjphY3RpdmUsIC5idG46YWN0aXZlOmZvY3VzIHsKICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE1MywxNTMsMTUzLDAuNCk7CiAgYmFja2dyb3VuZC1pbWFnZTogbm9uZTsKICBvdXRsaW5lOiBub25lOwogIGJveC1zaGFkb3c6IG5vbmU7CiAgY29sb3I6ICVjb2xvcjpQcmltYXJ5IDUwMCU7Cn0KCi5idG5bZGlzYWJsZWRdIHsgY29sb3I6IHJnYmEoMCwgMCwgMCwgLjI1KTsgfQouYW52aWwtcm9sZS1yYWlzZWQgPiAuYnRuW2Rpc2FibGVkXSwgLmFudmlsLXJvbGUtcHJpbWFyeS1jb2xvciA+IC5idG5bZGlzYWJsZWRdLCAuYW52aWwtcm9sZS1zZWNvbmRhcnktY29sb3IgPiAuYnRuW2Rpc2FibGVkXSB7CiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjEyKSAhaW1wb3J0YW50OwogIGNvbG9yOiByZ2JhKDAsMCwwLDAuMjUpICFpbXBvcnRhbnQ7CiAgYm94LXNoYWRvdzogbm9uZSAhaW1wb3J0YW50Owp9CgouYW52aWwtcm9sZS1yYWlzZWQgPiAuYnRuLCAuYW52aWwtcm9sZS1wcmltYXJ5LWNvbG9yID4gLmJ0biwgLmFudmlsLXJvbGUtc2Vjb25kYXJ5LWNvbG9yID4gLmJ0biwgLmFudmlsLXJvbGUtcmFpc2VkLmZpbGUtbG9hZGVyPmxhYmVsLCAuYW52aWwtcm9sZS1wcmltYXJ5LWNvbG9yLmZpbGUtbG9hZGVyPmxhYmVsLCAuYW52aWwtcm9sZS1zZWNvbmRhcnktY29sb3IuZmlsZS1sb2FkZXI+bGFiZWwsCi5idG4tcHJpbWFyeSwgLmJ0bi1zdWNjZXNzLCAuYnRuLWluZm8sIC5idG4td2FybmluZywgLmJ0bi1kYW5nZXIKewogIC8qIDJkcCAqLyAgYm94LXNoYWRvdzogMCAycHggMnB4IDAgcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAzcHggMXB4IC0ycHggcmdiYSgwLCAwLCAwLCAwLjIpLCAwIDFweCA1cHggMCByZ2JhKDAsIDAsIDAsIDAuMTIpOwp9CgouYW52aWwtcm9sZS1yYWlzZWQgPiAuYnRuOmFjdGl2ZSwgLmFudmlsLXJvbGUtcHJpbWFyeS1jb2xvciA+IC5idG46YWN0aXZlLCAuYW52aWwtcm9sZS1zZWNvbmRhcnktY29sb3IgPiAuYnRuOmFjdGl2ZSwgLmJ0bi1wcmltYXJ5OmFjdGl2ZSwKLmJ0bi1wcmltYXJ5OmFjdGl2ZSwgLmJ0bi1zdWNjZXNzOmFjdGl2ZSwgLmJ0bi1pbmZvOmFjdGl2ZSwgLmJ0bi13YXJuaW5nOmFjdGl2ZSwgLmJ0bi1kYW5nZXI6YWN0aXZlIHsKICAvKiA4ZHAgKi8gYm94LXNoYWRvdzogMCA4cHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAzcHggMTRweCAycHggcmdiYSgwLCAwLCAwLCAwLjEyKSwgMCA1cHggNXB4IC0zcHggcmdiYSgwLCAwLCAwLCAwLjIpOyAgCiAgdG9wOiAtMXB4Owp9CgouYW52aWwtcm9sZS1wcmltYXJ5LWNvbG9yID4gLmJ0biwgLmJ0bi1wcmltYXJ5LCAuYW52aWwtcm9sZS1wcmltYXJ5LWNvbG9yLmZpbGUtbG9hZGVyPmxhYmVsIHsKICBjb2xvcjogd2hpdGU7CiAgYmFja2dyb3VuZC1jb2xvcjogJWNvbG9yOlByaW1hcnkgNTAwJTsKfQoKLmFudmlsLXJvbGUtc2Vjb25kYXJ5LWNvbG9yID4gLmJ0biwgLmFudmlsLXJvbGUtc2Vjb25kYXJ5LWNvbG9yLmZpbGUtbG9hZGVyPmxhYmVsIHsKICBjb2xvcjogd2hpdGU7CiAgYmFja2dyb3VuZC1jb2xvcjogJWNvbG9yOlNlY29uZGFyeSA1MDAlOwp9CgouYnRuLXN1Y2Nlc3MsIC5idG4taW5mbywgLmJ0bi13YXJuaW5nLCAuYnRuLWRhbmdlciB7CiAgY29sb3I6IHdoaXRlOwp9CgouYW52aWwtcm9sZS1wcmltYXJ5LWNvbG9yID4gLmJ0bjpob3ZlciwgLmFudmlsLXJvbGUtcHJpbWFyeS1jb2xvciA+IC5idG46YWN0aXZlLCAuYW52aWwtcm9sZS1wcmltYXJ5LWNvbG9yID4gLmJ0bjpmb2N1cywKLmJ0bi1wcmltYXJ5OmhvdmVyLCAuYnRuLXByaW1hcnk6YWN0aXZlLCAuYnRuLXByaW1hcnk6Zm9jdXMgewogIGNvbG9yOiB3aGl0ZTsKICBiYWNrZ3JvdW5kLWNvbG9yOiAlY29sb3I6UHJpbWFyeSA3MDAlOwp9CgouYW52aWwtcm9sZS1zZWNvbmRhcnktY29sb3IgPiAuYnRuOmhvdmVyLCAuYW52aWwtcm9sZS1zZWNvbmRhcnktY29sb3IgPiAuYnRuOmFjdGl2ZSwgLmFudmlsLXJvbGUtc2Vjb25kYXJ5LWNvbG9yID4gLmJ0bjpmb2N1cyB7CiAgY29sb3I6IHdoaXRlOwogIGJhY2tncm91bmQtY29sb3I6ICVjb2xvcjpTZWNvbmRhcnkgNzAwJTsKfQoKLyogQ29tcG9uZW50OiBDYXJkICovCgouYW52aWwtcm9sZS1jYXJkIHsKICBvdmVyZmxvdzogaGlkZGVuOwogIGJvcmRlci1yYWRpdXM6IDJweDsKICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTsKICBwYWRkaW5nOiA4cHggMTJweDsKICAvKiAyZHAgKi8gIGJveC1zaGFkb3c6IDAgMnB4IDJweCAwIHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgM3B4IDFweCAtMnB4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCAxcHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjEyKTsKfQoKLyogZnVsbF93aWR0aF9yb3cgc2VjdGlvbnMgZ28gZnVsbCBibGVlZCAqLwouY29sdW1uLXBhbmVsLmFudmlsLXJvbGUtY2FyZCA+IC5hbnZpbC1wYW5lbC1zZWN0aW9uID4gLmFudmlsLXBhbmVsLXNlY3Rpb24tY29udGFpbmVyLmZ1bGwtd2lkdGgtcm93IHsKICBtYXJnaW4tbGVmdDogLTEycHg7CiAgbWFyZ2luLXJpZ2h0OiAtMTJweDsKICB3aWR0aDogaW5pdGlhbDsKICBtYXgtd2lkdGg6IGluaXRpYWw7Cn0KCi8qIElmIHRoZSBmaXJzdCByb3cgb2YgYSBjYXJkIGlzIGEgZnVsbF93aWR0aF9yb3csIGl0IGdvZXMgdG8gdGhlIHRvcCAqLwouY29sdW1uLXBhbmVsLmFudmlsLXJvbGUtY2FyZCA+IC5hbnZpbC1wYW5lbC1zZWN0aW9uOmZpcnN0LWNoaWxkID4gLmFudmlsLXBhbmVsLXNlY3Rpb24tY29udGFpbmVyLmZ1bGwtd2lkdGgtcm93IHsKICBtYXJnaW4tdG9wOiAtOHB4Owp9Ci5jb2x1bW4tcGFuZWwuYW52aWwtcm9sZS1jYXJkID4gLmFudmlsLXBhbmVsLXNlY3Rpb246bGFzdC1jaGlsZCA+IC5hbnZpbC1wYW5lbC1zZWN0aW9uLWNvbnRhaW5lci5mdWxsLXdpZHRoLXJvdyB7CiAgbWFyZ2luLWJvdHRvbTogLThweDsKfQoKCgovKiBDb21wb25lbnQ6IFRleHRCb3ggKyBUZXh0QXJlYSAqLwoKaW5wdXQuYW52aWwtY29tcG9uZW50LCB0ZXh0YXJlYS5hbnZpbC1jb21wb25lbnQsIC5hbnZpbC1jb21wb25lbnQgc2VsZWN0LCAuYW52aWwtZGF0ZXBpY2tlciBpbnB1dCB7CiAgZm9udC1zaXplOiAxNnB4OwogIGxpbmUtaGVpZ2h0OiAxLjU7CiAgYm9yZGVyLXJhZGl1czogMDsKICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICBjb2xvcjogcmdiYSgwLDAsMCwwLjg3KTsKICAKICBib3gtc2hhZG93OiBub25lOwp9CgouYW52aWwtZHJvcGRvd24gewogIGZvbnQtc2l6ZTogMTZweDsKfQouYW52aWwtY29tcG9uZW50IHNlbGVjdCB7CiAgZm9udC1zaXplOiBpbmhlcml0Owp9CgppbnB1dC5hbnZpbC1jb21wb25lbnQsIC5hbnZpbC1jb21wb25lbnQgc2VsZWN0LCAuYW52aWwtZGF0ZXBpY2tlciBpbnB1dCB7CiAgcGFkZGluZzogOHB4IDAgNHB4OwogIGJvcmRlcjogMDsKICBib3JkZXItYm90dG9tOiAxcHggc29saWQgcmdiYSgwLDAsMCwwLjQyKTsKCiAgdHJhbnNpdGlvbjogYm9yZGVyLWJvdHRvbSAwLjJzLCBwYWRkaW5nLWJvdHRvbSAwLjJzOwogIC1tb3otdHJhbnNpdGlvbjogbm9uZTsgLyogRmlyZWZveCBpcyBqdW1weSwgc28gZGlzYWJsZSB0cmFuc2l0aW9ucyAqLwp9Cgp0ZXh0YXJlYS5hbnZpbC1jb21wb25lbnQgewogIHBhZGRpbmc6IDRweCA4cHg7CiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgwLDAsMCwwLjQyKTsKICBib3JkZXItcmFkaXVzOiAycHg7CiAgdHJhbnNpdGlvbjogYm9yZGVyIDAuMnMsIHBhZGRpbmcgMC4yczsKICAtbW96LXRyYW5zaXRpb246IG5vbmU7IC8qIEZpcmVmb3ggaXMganVtcHksIHNvIGRpc2FibGUgdHJhbnNpdGlvbnMgKi8KfQoKLmFudmlsLWRyb3Bkb3duIHNlbGVjdC5mb3JtLWNvbnRyb2wgewogIAogIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTsKICAtbW96LWFwcGVhcmFuY2U6IG5vbmU7CiAgcGFkZGluZzogOHB4IDJlbSA0cHggMDsKICAKICAvKiBldyBldyBldyAtIHNlbGVjdCBlbGVtZW50cyBhcmUgd2VpcmQgYW5kIGRvbid0IG9iZXkgbGluZS1oZWlnaHQsIHNvIHdlIGp1c3QKICAgICBzZXQgdGhlIGhlaWdodCBleHBsaWNpdGx5LiBVZ2guICovCiAgaGVpZ2h0OiBjYWxjKDEuNWVtICsgMTNweCk7IC8qIDhweCArIDRweCBwYWRkaW5nICsgMXB4IGJvcmRlciA9IDEzcHggKi8KfQoKLmFudmlsLWRyb3Bkb3duIHsKICBwb3NpdGlvbjogcmVsYXRpdmU7Cn0KLyogU2VsZWN0IGFycm93IHN0eWxpbmcgKi8KLmFudmlsLWRyb3Bkb3duIGZvcm06YmVmb3JlIHsKICAgIGNvbnRlbnQ6ICJcMjVCQyI7CiAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICByaWdodDogMDsKICAgIGZvbnQtc2l6ZTogODAlOwogICAgbGluZS1oZWlnaHQ6IGNhbGMoMS44ZW0gKyA4cHgpOwogICAgY29sb3I6ICM1NTU7CiAgICBwb2ludGVyLWV2ZW50czpub25lOwogICAgcGFkZGluZzogNHB4IDRweDsKfQoKLmFudmlsLWNvbXBvbmVudCBzZWxlY3QsIC5hbnZpbC1kYXRlcGlja2VyIGlucHV0IHsgbWFyZ2luLWJvdHRvbTogNHB4OyB9CmlucHV0LmFudmlsLWNvbXBvbmVudC5hbnZpbC1zcGFjaW5nLWJlbG93LW5vbmUgeyBtYXJnaW4tYm90dG9tOiA0cHg7IH0KaW5wdXQuYW52aWwtY29tcG9uZW50LmFudmlsLXNwYWNpbmctYmVsb3ctc21hbGwgeyBtYXJnaW4tYm90dG9tOiA4cHg7IH0KaW5wdXQuYW52aWwtY29tcG9uZW50LmFudmlsLXNwYWNpbmctYmVsb3ctbWVkaXVtIHsgbWFyZ2luLWJvdHRvbTogMTJweDsgfQppbnB1dC5hbnZpbC1jb21wb25lbnQuYW52aWwtc3BhY2luZy1iZWxvdy1sYXJnZSB7IG1hcmdpbi1ib3R0b206IDIwcHg7IH0KCmlucHV0LmFudmlsLWNvbXBvbmVudDo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciwgdGV4dGFyZWEuYW52aWwtY29tcG9uZW50Ojotd2Via2l0LWlucHV0LXBsYWNlaG9sZGVyIHsKICBjb2xvcjogcmdiYSgwLDAsMCwwLjU0KTsKfQppbnB1dC5hbnZpbC1jb21wb25lbnQ6Oi1tb3otcGxhY2Vob2xkZXIsIHRleHRhcmVhLmFudmlsLWNvbXBvbmVudDo6LW1vei1wbGFjZWhvbGRlciB7CiAgY29sb3I6IHJnYmEoMCwwLDAsMC41NCk7Cn0KaW5wdXQuYW52aWwtY29tcG9uZW50OjpwbGFjZWhvbGRlciwgdGV4dGFyZWEuYW52aWwtY29tcG9uZW50OjpwbGFjZWhvbGRlciAgewogIGNvbG9yOiByZ2JhKDAsMCwwLDAuNTQpOwp9CgouYXBwLWJhciBpbnB1dC5hbnZpbC1jb21wb25lbnQ6Oi13ZWJraXQtaW5wdXQtcGxhY2Vob2xkZXIsIC5hcHAtYmFyIHRleHRhcmVhLmFudmlsLWNvbXBvbmVudDo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7CiAgY29sb3I6IHJnYmEoMjU1LDI1NSwyNTUsMC44KTsKfQouYXBwLWJhciBpbnB1dC5hbnZpbC1jb21wb25lbnQ6Oi1tb3otcGxhY2Vob2xkZXIsIC5hcHAtYmFyIHRleHRhcmVhLmFudmlsLWNvbXBvbmVudDo6LW1vei1wbGFjZWhvbGRlciB7CiAgY29sb3I6IHJnYmEoMjU1LDI1NSwyNTUsMC44KTsKfQouYXBwLWJhciBpbnB1dC5hbnZpbC1jb21wb25lbnQ6OnBsYWNlaG9sZGVyLCAuYXBwLWJhciB0ZXh0YXJlYS5hbnZpbC1jb21wb25lbnQ6OnBsYWNlaG9sZGVyICB7CiAgY29sb3I6IHJnYmEoMjU1LDI1NSwyNTUsMC44KTsKfQoKaW5wdXQuYW52aWwtY29tcG9uZW50OmhvdmVyLCAuYW52aWwtY29tcG9uZW50IHNlbGVjdDpob3ZlciwgLmFudmlsLWRhdGVwaWNrZXIgaW5wdXQ6aG92ZXIgewogIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCByZ2JhKDAsMCwwLC44Nyk7CiAgcGFkZGluZy1ib3R0b206IDNweDsKfQoKaW5wdXQuYW52aWwtY29tcG9uZW50OmZvY3VzLCAuYW52aWwtY29tcG9uZW50IHNlbGVjdDpmb2N1cywgLmFudmlsLWRhdGVwaWNrZXIgaW5wdXQ6Zm9jdXMgewogIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCAlY29sb3I6UHJpbWFyeSA3MDAlOwogIHBhZGRpbmctYm90dG9tOiAzcHg7CiAgYm94LXNoYWRvdzogbm9uZTsKfQoKaW5wdXQuYW52aWwtY29tcG9uZW50W2Rpc2FibGVkXSwgLmFudmlsLWNvbXBvbmVudCBzZWxlY3RbZGlzYWJsZWRdLCAuYW52aWwtZGF0ZXBpY2tlciBpbnB1dFtkaXNhYmxlZF0gewogIGJvcmRlci1ib3R0b206IDFweCBkYXNoZWQgIzg4ODsKICBwYWRkaW5nLWJvdHRvbTogNHB4OwogIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50Owp9Cgp0ZXh0YXJlYS5hbnZpbC1jb21wb25lbnQ6aG92ZXIgewogIGJvcmRlcjogMnB4IHNvbGlkIHJnYmEoMCwwLDAsMC44Nyk7CiAgcGFkZGluZzogM3B4IDdweDsKfQoKdGV4dGFyZWEuYW52aWwtY29tcG9uZW50OmZvY3VzIHsKICBib3JkZXI6IDJweCBzb2xpZCAlY29sb3I6UHJpbWFyeSA3MDAlOwogIHBhZGRpbmc6IDNweCA3cHg7CiAgYm94LXNoYWRvdzogbm9uZTsKfQoKdGV4dGFyZWEuYW52aWwtY29tcG9uZW50W2Rpc2FibGVkXSB7CiAgYm9yZGVyOiAxcHggZGFzaGVkICM4ODg7CiAgcGFkZGluZzogNHB4IDhweDsKICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKfQoKLmRhdGVyYW5nZXBpY2tlciB0ZC5hY3RpdmUgewogIGJhY2tncm91bmQtY29sb3I6ICVjb2xvcjpQcmltYXJ5IDUwMCU7Cn0KCi5kYXRlcmFuZ2VwaWNrZXIgdGQuYWN0aXZlOmhvdmVyIHsKICBiYWNrZ3JvdW5kLWNvbG9yOiAlY29sb3I6UHJpbWFyeSA3MDAlOwp9CgouZGF0ZXJhbmdlcGlja2VyIC5idG4tc3VjY2VzcyB7CiAgY29sb3I6ICVjb2xvcjpQcmltYXJ5IDUwMCU7Cn0KCi8qIENvbXBvbmVudDogQ2hlY2tCb3gsIFJhZGlvQnV0dG9uICovCi8qIFVnaC4gVGhlc2UgYXJlIGRlZmluaXRlbHkgVE9ETyByaWdodCBub3cuICovCgouY2hlY2tib3gsIC5yYWRpbyB7CiAgZm9udC1zaXplOiAxNnB4Owp9CgovKiBTaGFkb3cgdmFsdWVzIHRha2VuIGZyb20gCmh0dHBzOi8vc3RhY2tvdmVyZmxvdy5jb20vcXVlc3Rpb25zLzMwNTMzMDU1L2NhbGN1bGF0aW5nLXNoYWRvdy12YWx1ZXMtZm9yLWFsbC1tYXRlcmlhbC1kZXNpZ24tZWxldmF0aW9ucwoqLwoK,
+    id: TXE53ZKTGXOGTG66FZX75W6HUIVE2KYB}
+server_modules:
+- {name: ServerModule1, code: 'import anvil.tables as tables
+
+    import anvil.tables.query as q
+
+    from anvil.tables import app_tables
+
+    import anvil.server
+
+
+    # This is a server module. It runs on the Anvil server,
+
+    # rather than in the user''s browser.
+
+    #
+
+    # To allow anvil.server.call() to call functions here, we mark
+
+    # them with @anvil.server.callable.
+
+    # Here is an example - you can replace it with your own:
+
+    #
+
+    # @anvil.server.callable
+
+    # def say_hello(name):
+
+    #   print("Hello, " + name + "!")
+
+    #   return 42
+
+    #
+
+
+    ', id: W2TU5WFDQSN3PAKIF5GGSSFK4EYAVRYY}
+renamed: true
