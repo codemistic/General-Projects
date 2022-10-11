@@ -1,0 +1,12 @@
+{
+  "name": "npmsearcher",
+  "version": "1.0.0",
+  "description": "A simple nodejs program to search for NPM packages",
+  "main": "index.js",
+  "author": "Agampreet Singh",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "axios": "^1.1.2"
+  }
+}
