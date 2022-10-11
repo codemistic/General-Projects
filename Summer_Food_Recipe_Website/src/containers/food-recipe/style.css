@@ -1,0 +1,41 @@
+.re {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+}
+.re-ingredient {
+    width: 35%;
+     background-color : rgb(253, 114, 33);
+     padding: 40px 0;
+     margin-right: 10px;
+     
+}
+.re-steps{ 
+    width: 63%;
+    padding:40px;
+    background-color: #ffffff;
+    
+}
+@media(max-width:375px){
+    .re {
+        display: flex;
+        box-sizing: border-box;
+        flex-direction: column;
+    
+    }
+    .re-ingredient {
+        width: 100%;
+        margin-bottom: 10px;
+         }
+    .re-steps{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+        padding-bottom: 10px;
+    }
+    .re-ingredient {
+         padding: 10px 0;
+         
+    }
+}

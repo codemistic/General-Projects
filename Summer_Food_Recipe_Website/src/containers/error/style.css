@@ -1,0 +1,12 @@
+.error-box h2 {
+    font-size: 100px;
+    font-family: 'Piedra', cursive;
+    color: rgb(253, 114, 33);
+    margin: 0;
+    padding-top:100px;
+    letter-spacing: 2px;
+}
+.error-box {
+    text-align: center;
+    
+}

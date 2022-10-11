@@ -1,0 +1,54 @@
+.summer-food{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    padding-left: 13px;
+    box-sizing: border-box;
+}
+.summer-food-div {
+    width :30%;
+    padding: 10px; 
+    margin: 5px;
+    background-color: #fff;
+}
+.recipe-name {
+    margin: 0;
+    padding: 15px;
+    letter-spacing: 1px;
+    color: rgb(250, 123, 50);
+    font-family: 'Piedra', cursive;
+    text-transform: capitalize;
+    font-size: 30px;
+}
+.recipe-image{
+    width: 100%;
+}
+.recipe-image img{
+    max-width: 100%;
+    
+}
+.summer-food p{
+    color: #333;
+    font-size: 25px;
+    font-family: 'Satisfy', cursive;
+    font-weight: 600;
+}
+.see-more {
+    cursor: pointer;
+    text-decoration: underline;
+    color:rgb(253, 213, 33);
+    font-weight: 500;
+}
+.see-more:hover{
+    color: rgb(253, 114, 33);
+}
+@media(max-width:375px){
+    .summer-food-div {
+        width :100%;
+        margin: 5px 0;
+        background-color: #fff;
+        margin-right: 15px;
+    }
+}
