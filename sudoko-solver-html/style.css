@@ -1,0 +1,255 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1;
+    color: black;
+    background: white;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    vertical-align: middle;
+}
+
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+q, blockquote {
+    quotes: "" "";
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+}
+
+a img {
+    border: none;
+}
+
+body {
+    font-family: georgia, serif;
+    width: 760px;
+    margin: 30px auto 50px;
+    color: #777;
+    letter-spacing: -0.05em;
+    font-size: 20px;
+    background: url(background.jpg) repeat-x top left;
+}
+
+a, a:visited {
+    color: #777;
+}
+
+strong {
+    font-weight: bold;
+}
+
+p {
+    margin: 1em 0 1.5em;
+    text-indent: 0.5em;
+    line-height: 1.4em;
+}
+
+h2 {
+    font-size: 1.5em;
+    letter-spacing: -0.06em;
+}
+
+pre {
+    font-family: monaco, courier, monospace;
+}
+
+.controls, .warning, .short-link,  .social {
+    text-align: center;
+}
+
+.note {
+    color: #aaa;
+    font-size: 75%;
+}
+
+.short-link {
+    font-size: 2em;
+    margin-top: 0;
+    text-align:center;
+}
+
+object {
+    margin-bottom: 1.5em;
+}
+
+#sudoku_wrapper {
+    width: 500px;
+    margin: 20px auto;
+    color: #000;
+    text-align: center;
+    font-family: helvetica, arial, sans-serif;
+}
+
+#sudoku {
+    color: #aaa;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#sudoku caption {
+    color: #000;
+    margin-left: 25px;
+    font-size: 80%;
+    font-family: georgia;
+    text-align: center;
+}
+
+#sudoku, #sudoku tr td,
+table.block, table.horizontal-labels,
+table.vertical-labels {
+    border-collapse: collapse;
+    margin:0;
+    padding:0;
+    text-align: center;
+}
+
+table.horizontal-labels {
+    margin-left: 2px;
+}
+
+table.block {
+    border-color: #000;
+    border-style: solid;
+    border-width: 0px;
+    font-weight: bold;
+    font-size: 22pt;
+}
+
+table.block td {
+    font-weight: bold;
+    background: white;
+}
+
+#b11, #b12, #b13 {
+    border-top-width: 4px;
+}
+
+table.block{
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+}
+
+#b11, #b21, #b31 {
+    border-left-width: 4px;
+}
+
+table.horizontal-labels tr td,
+table.vertical-labels tr td{
+    font-size: 10pt;
+}
+
+table.horizontal-labels tr td {
+    width:50px;
+    height:25px;
+}
+
+table.vertical-labels tr td {
+    width:25px;
+    height:50px;
+}
+
+table.block tr td{
+    border: 1px solid #000;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+table.block tr td.user-defined {
+    color: #000;
+}
+
+table.block tr td.selected {
+    background-color: #cecece !important;
+}
+
+table.block tr td pre{
+    font-weight: normal;
+    font-size: 40%;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+table.block tr td.error{
+    color: #f00;
+    background-color: #ffefef;
+}
+
+#completion {
+    border:4px solid #000;
+    border-top: none;
+    height: 10px;
+    width: 466px;
+    margin: 0 0 0 25px;
+    padding: 0;
+}
+
+#bar {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 0;
+    background-color: transparent;
+    -webkit-transition-property: width, background-color;
+    -webkit-transition-duration: 500ms;
+    -webkit-transition-timing-function: ease-in-out;
+
+    -moz-transition-property: width, background-color;
+    -moz-transition-duration: 500ms;
+    -moz-transition-timing-function: ease-in-out;
+
+    -o-transition-property: width, background-color;
+    -o-transition-duration: 500ms;
+    -o-transition-timing-function: ease-in-out;
+}
+
+#output-wrapper {
+    display: none;
+    height: 200px;
+    width: 466px;
+    border:1px solid #eee;
+    margin: 0 0 0 25px;
+    padding: 0;
+    overflow: auto;
+}
+
+#output {
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    text-align:left;
+}
