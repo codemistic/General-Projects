@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HOME</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+{# navbar start #}
+<nav class="navbar navbar-expand-lg navbar-light static-top container-fluid font-weight-bold"
+     style="background-color: lightblue;">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto text-center text-justify">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('home') }}">KNN</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('svdIndex') }}">SVD</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="#">View</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{# navbar end #}
+<br>
+{#container#}
+<div class="container-fluid">
+    <div class="row " style="margin-left: 5%;">
+        <div class="col-sm-8 col-md-7 col-lg-6 mx-auto">
+            <div class="card card-signin  my-5">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Library Book Recommendation System</h4>
+                    <hr>
+                    <br>
+                    <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+
+                        <div class="form-label-group">
+                            <input type="text" id="book" name="book" class="form-control" placeholder="Book Title" required autofocus>
+                            <label for="book">Book Title</label>
+                        </div>
+                        <div class="container-fluid">
+                            <button type="submit"
+                                    class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" value="predict">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+from tkinter import *
+from PIL import Image, ImageTk
+import sys
+sys.path.append( "C:/Users/ahraz/PycharmProjects/pythonProject7" )
+
+import pygame
+window=Tk()
+width = window.winfo_screenwidth()
+height = window.winfo_screenheight()
+# setting tkinter window size
+window.geometry("%dx%d" % (width, height))
+window.title("ROCK PAPER SCISSOR GAME")
+bg = ImageTk.PhotoImage(Image.open('C:/Users/ahraz/Desktop/rp/bb7.jpg'))
+label1 = Label(window, width=1366, height=768, image=bg).place(x=0, y=0)
+class startpage:
+    def despage(self):
+        window.destroy()
+        #page2="C:/Users/ahraz/PycharmProjects/pythonProject7/main.py"
+        import main

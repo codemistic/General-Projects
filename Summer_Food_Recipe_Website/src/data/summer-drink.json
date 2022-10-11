@@ -1,0 +1,64 @@
+{
+    "data" : [
+        {
+            "id": 1,
+            "recipeName": "aam panna",
+            "cookingTime" : "15 min",
+            "Category": "popular",
+            "recipeImage": "drink-1.jpg",
+            "recipeIngredients": ["raw mangoes", "mint leaves", "salt","sugar","cumin powder"],
+            "recipe": ["1.Pressure cook the mangoes over medium heat for 4-5 whistle along with water.","2.Remove the stones, if any, in the mangoes.","3. Allow the mango pulp to cool.","4. Blend together the mango pulp, sugar, salt, spices, and mint until smooth.","5. Add water to the prepared pulp and mix it well.","6. Your aam panna is ready"],
+            "description": "Refreshing and heat resistant",
+            "data":"summer-drink" 
+        },
+        {
+            "id": 2,
+            "recipeName": "Banana milkshake",
+            "cookingTime" : "6 min",
+            "Category": "popular",
+            "recipeImage": "drink-2.jpg",
+            "recipeIngredients": ["bananas,chopped", "4 scoops vanilla icecream(optional)", "1 cup milk","1tbsp vanilla extract"],
+            "recipe": ["1. In a blender add banana, icecream, milk, and vanilla extract.", "2. Blend until smooth.","3. Pour into a tall glasses and garnish with some banana slices.","4.Serve it"],
+            "description": "get your muscle developed",
+            "data":"summer-drink" 
+        },
+        
+        {
+            "id": 3,
+            "recipeName": "lassi",
+            "cookingTime" : "10 min",
+            "Category": "Y",
+            "recipeImage": "drink-3.jpg",
+            "recipeIngredients": ["2 cups fresh yogurt", "water 1/2cup", "6-7tbsp sugar","1/2tbsp cardamom powder","almonds and pista","icecubes"],
+            "recipe": ["1. Add yogurt, sugar, water and cardamom powder in a blender.", "2. Blend it until it gets smooth and frothy.","3.Pour the lassi into the glass.","4. Add the crushed icecubes to it and finely chopped nuts.","5.Now chill the lassi in the refrigerator.","6. Serve chilled."],
+            "description": "keep our digestive system healthy",
+            "data":"summer-drink" 
+        },
+        
+        {
+            "id": 4,
+            "recipeName": "chaas [buttermilk]",
+            "cookingTime" : "10 min",
+            "Category": "popular",
+            "recipeImage": "drink-4.jpg",
+            "recipeIngredients": ["1/2cup chopped mint leaves", "1/2cup chopped coriander", "1/2 cup chopped green chillies","2tbsp cumin powder","1tbsp black salt","2 cups curd","salt to taste"],
+            "recipe": ["1. Add mint leaves, coriander, green chillies, cumin powder, black salt, 1/2 cup curd in a mixer.", "2. Blend it untill it gets smooth.","3. Combine the mint coriander mixture, remaining cup of curd, salt, and 2 1/2 cup of water in a deep bowl and mix it well using a whisk.","4. Pour the chaas in glass and garnish it with mint leaves. ","5. serve chilled."],
+            "description": "Aids in digestion and fights acidity",
+            "data":"summer-drink" 
+        },
+        
+        {
+            "id": 5,
+            "recipeName": "cold coffee",
+            "cookingTime" : "7 min",
+            "Category": "popular",
+            "recipeImage": "drink-5.jpg",
+            "recipeIngredients": ["1 cup milk", "1tbsp sugar powdered", "1-2tbsp instant coffee","4-5 icecubes"],
+            "recipe": ["1. Take milk,cofee, sugar, ice into a blender.", "2. Blend it until it gets smooth and frothy.","3.Pour it into a big glass.","4.Garnish it with cocoa powder and chocolate sprinkles(optional).","5. Serve it"],
+            "description": "What goes best with a cup of coffee? Another cup ",
+            "data":"summer-drink" 
+        }
+        
+        
+    ]
+}

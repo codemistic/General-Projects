@@ -1,0 +1,77 @@
+{
+    "data" : [
+        {
+            "id": 1,
+            "recipeName": "EGG AVOCADO SANDWICH",
+            "cookingTime" : "10 min cook",
+            "Category": "popular",
+            "recipeImage": "food-1.jpg",
+            "recipeIngredients": ["Half boiled eggs", "avocados", "Yogurt","Lemon juice","Green onions","salt and pepper","Dijon musturd"],
+            "recipe": ["1. Take two or three half boiled eggs and chop them into small pecies.","2. Pick an avocado and chop it finely in small peices.","3. In a bowl add yogurt, lemonjuice, choped green onions and dijon musturd.","4. Add half spoon of salt and pepper in it.","5. Mix it evenly.","6. Place that mixture between two slices of bread and garnish it with half sliced eggs and leaves of spanich.","7.  Serve and enjoy."],
+
+            "description": "With healthy eggs and yummy avagardo",
+            "data":"summer-food"
+        },
+        {
+            "id": 2,
+            "recipeName": "BANANA CARAMEL SANDWICH",
+            "cookingTime" : "7 min cook",
+            "Category": "popular",
+            "recipeImage": "food-2.jpg",
+            "recipeIngredients": ["100g blueberries", "2tbsp sugar", "50 mL water","50g walnuts","2 bananas"," Brown bread"],
+            "recipe": ["1. Take some sugar in small pan and pour down some water .let it bubble then after 5 minutes add some walnuts to it  and stir continuously until it turns a deep golden brown.", "2.Take bread and put some banana slices, caramel and bluberries.","3. Garnish sandwich with some banana slices, blueberries and some powdered sugar.","4. Serve and joy."],
+            "description": "Sweetness of banana and caramel",
+            "data":"summer-food"
+        },
+        
+        {
+            "id": 3,
+            "recipeName": "MASALA CORN",
+            "cookingTime" : "5 min cook",
+            "Category": "popular",
+            "recipeImage": "food-3.jpg",
+            "recipeIngredients": ["3tbsp salt", "2tbsp blackpepper", "2tbsp cumin powder","4tbsp melted butter","3tp chopped coriander","lemon juice"],
+            "recipe": ["1.  Mix all spices together in a bowl.", "2.  Put corn on flame and let it heatup for 3 minutes.","3.  Apply melted butter on corn and sprinkle the spices onto the corn.","4.  After this rub corn with lemon and sprinkle coriander to it.","5.  serve it."],
+            "description": "Best healthy snacks",
+            "data":"summer-food"
+        },
+        
+        {
+            "id": 4,
+            "recipeName": "cuncky meat pizza",
+            "cookingTime" : "20 min cook",
+            "Category": "popular",
+            "recipeImage": "food-4.jpg",
+            "recipeIngredients": ["pizza base", "10-15 olives ", " Mozzarella cheese","meat slices"],
+            "recipe": ["1. Add tomato sauce on pizza base.", "2. IN TOPPINGS : add cheese, olives and meat slices.","3. Put the pizza in oven for 15 minutes.","4. Then serve them to your family."],
+            "description": "A chessy meal and children favourite",
+            "data":"summer-food"
+        },
+        
+        {
+            "id": 5,
+            "recipeName": "CHESSY SANDWICH",
+            "cookingTime" : "10 min cook",
+            "Category": "popular",
+            "recipeImage": "food-5.jpg",
+            "recipeIngredients": ["finely chopped cabbage", "finely chopped carrots", "thick tomato sauce","finely chopped cheese","1 tbsp Salt and pepper","parsley"],
+            "recipe": ["1.  Mixed cabbage ,carrots and parsley into a bowl.", "2.  Add salt and pepper to it.","3.  Take two slice of bread in pan and grill them for 4 minutes till it's surface gets golden brown", "4.Put chopped vegetable , tamoto paste  inside the bread. and add sliced cheese into it.","5.  Enjoy your meal."],
+            "description": "Filled with goodness of veggies and chesse",
+            "data":"summer-food"
+        },
+        {
+            "id": 6,
+            "recipeName": "PEACH OATS BOWL",
+            "cookingTime" : "7 min cook",
+            "Category": "popular",
+            "recipeImage": "food-6.jpg",
+            "recipeIngredients": ["cereal", "oats", "peach","milk","walnuts","1tbsp sugar","1/4tbsp vanilla cream"],
+            "recipe": ["1. In a large bowl combine oats, cereal, milk, sugar and last walnuts.", "2. If using fresh peaches add them to oat meal mixture before microwaving.","3. Microwave mixture on high power for  4 minutes.","4.  After removing add some vanilla cream.","5. enjoy your meal."],
+            "description": "Yummy and healthy breakfast",
+            "data":"summer-food"
+        }
+        
+        
+        
+    ]
+}

@@ -1,0 +1,37 @@
+.navbar {
+    width: 100%;
+}
+.menu {
+    display: flex;
+    
+    padding: 0;
+}
+.menu li{
+    text-transform: uppercase;
+   list-style: none;
+    display: inline-block;
+    margin: 5px 10px ;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+     
+   
+}
+.menu-item:hover{
+    color: rgb(253, 114, 33);
+}
+
+.menu-item {
+    text-decoration: none;
+    color:rgb(253, 213, 33);
+}
+.menu{
+    padding: 5px 0;
+}
+
+@media(max-width:375px){
+    .menu li{
+    font-size: 14px; 
+}
+}
