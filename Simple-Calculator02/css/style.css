@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --primary-colour:rgb(9, 51, 114);
+}
+.light-mode{
+ --primary-colour:rgb(224, 71, 132);
+}
+
+#mute {
+  width: 60px;
+  margin-left: 90%;
+  position:absolute;
+  margin-bottom: 40%;
+  cursor: pointer;
+}
+.container{
+    background-image: url("/img/light.jpg");
+    transition: background-image 0.75s linear;
+    background-size: 100%;   
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(135, 206, 235);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    text-align: center;
+}
+.logo{
+  max-width: 150px;
+}
+.calculator{
+    height: 500px;
+    width: 400px;
+    background-color: var(--primary-colour);
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 90%;
+    top: 20px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: rgb(226 28 83) 0px 1px 2px 0px, rgb(181 189 98) 0px 2px 6px 2px;
+}
+.container {
+  background-color: rgb(135, 206, 235);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h1{
+  font-family: 'Roboto', sans-serif;
+  color: aliceblue;
+  text-shadow: 2px 7px 5px rgba(0,0,0,0.4), 
+  0px -4px 10px rgba(255,255,255,0.3);
+}
+
+.title {
+  background-color: rgb(135, 206, 235);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+.calculator {
+  height: 500px;
+  width: 400px;
+  background-color:var(--primary-colour);
+  margin: 0 auto;
+  position: relative;
+
+  top: 20px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0 8px 16px 0 rgb(64, 112, 184);
+
+}
+
+.result {
+  height: 30%;
+  border-radius: 10px 10px 10px 10px;
+  word-wrap: break-word;
+  overflow-y: scroll;
+
+  box-shadow: 0px 2px 1px #ffffff;
+
+}
+
+.history {
+  height: 20px;
+  text-align: right;
+  margin: 0 20px;
+  padding-top: 20px;
+  color: white;
+  font-size: 15px;
+}
+
+.output {
+  text-align: right;
+  margin: 0 20px;
+  padding-top: 10px;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: rgb(158, 250, 158);
+}
+
+.keyboard {
+  padding-top: 28px;
+  text-align: center;
+}
+
+button {
+  border-radius: 15%;
+  width: 20%;
+  margin: 1%;
+  height: 50px;
+  border-width: 0;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.number,
+.empty {
+  background-color: var(--primary-colour);
+  color: white;
+}
+
+.operator,
+.number {
+  cursor: pointer;
+  box-shadow: -14px -2px 66px #aaaaaab3, 0px 2px 1px #ffffff;
+}
+
+button:active {
+  width: 22%;
+  height: 52px;
+  font-size: 0.8em;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:nth-child(4) {
+  background-color: rgb(23, 231, 214);
+  /* box-shadow: 0 8px 16px 8px   rgb(0, 32, 80); */
+  z-index: 5;
+  /* position: absolute; */
+}
+
+button:nth-child(8) {
+  background-color: rgb(176, 231, 23);
+  /* box-shadow: 0 8px 16px 0   rgb(89, 130, 190); */
+  z-index: 5;
+  /* position: absolute; */
+}
+
+button:nth-child(12) {
+  background-color: rgb(231, 117, 23);
+  /* box-shadow: 0 8px 16px 0   rgb(89, 130, 190); */
+  z-index: 5;
+  /* position: absolute; */
+}
+
+button:nth-child(16) {
+  background-color: rgb(255, 133, 133);
+  /* box-shadow: 0 8px 16px 0  rgb(89, 130, 190); */
+  z-index: 5;
+  /* position: absolute; */
+}
+
+button:nth-child(20) {
+  background-color: rgb(72, 231, 23);
+  /* box-shadow: 0 8px 16px 0   rgb(89, 130, 190); */
+  z-index: 5;
+  /* position: absolute; */
+}
+
+.number:hover,
+.operator:hover {
+  background-color: black;
+  color: white;
+}
+footer {
+  background-color: rgb(135, 206, 235);
+  text-align: center;
+  font-size: 1.8em;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* For darkmode */
+#darkmode-icon {
+  height: 30px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+
+  /* using static units here instead of dynamic units to maintain a minimum base size as any resizing below this will cause the text to not be easily readable */
+
+  .calculator {
+    width: 300px;
+  }
+
+  button  {
+    width: 55px;
+  }
+}
+
+.result::-webkit-scrollbar { 
+  display: none;
+}
