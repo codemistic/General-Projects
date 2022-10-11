@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FAST CLICKER</title>
+        <style>
+		@import url("https://fonts.googleapis.com/css2?family=Oregano&family=Passero+One&display=swap");
+		@import url("https://fonts.googleapis.com/css2?family=Wellfleet&display=swap");
+	
+	body{
+	background: linear-gradient(to right, #2193b0 ,#6dd5ed);
+	
+	}
+	
+
+.target {
+    width:50px;
+    height:50px;
+    background: #fff;
+	border: 3px solid white;
+    border-radius: 100%;
+    background: #e8afb6;
+    -webkit-animation:grow 2s 100;
+    animation-iteration-count: 1;
+
+}
+
+.click {
+    width:10px;
+    height:10px;
+    background: #fff;
+    border-radius: 100%;
+    background: white;
+}
+
+
+
+@-webkit-keyframes grow {
+    0% {
+        -webkit-transform: scale( 0 );-moz-transform: scale( 0 );-o-transform: scale( 0 );-ms-transform: scale( 0 );transform: scale( 0 );
+    }
+
+    10% {
+        -webkit-transform: scale( 0.1 );-moz-transform: scale( 0.1 );-o-transform: scale( 0.1 );-ms-transform: scale( 0.1 );transform: scale( 0.1 );
+    }
+
+    20% {
+        -webkit-transform: scale( .2 );-moz-transform: scale( .2 );-o-transform: scale( 0.2 );-ms-transform: scale( 0.2 );transform: scale( 0.2 );
+    }
+
+    30% {
+        -webkit-transform: scale( .3 );-moz-transform: scale( .3 );-o-transform: scale( .3 );-ms-transform: scale( .3 );transform: scale( .3 );
+    }
+
+    40% {
+        -webkit-transform: scale( 0.4 );-moz-transform: scale( 0.4 );-o-transform: scale( 0.4 );-ms-transform: scale( 0.4 );transform: scale( 0.4 );
+    }
+
+    50% {
+        -webkit-transform: scale( .5 );-moz-transform: scale( .5 );-o-transform: scale( 0.5 );-ms-transform: scale( 0.5 );transform: scale( 0.5 );
+    }
+
+    60% {
+        -webkit-transform: scale( 0.6 );-moz-transform: scale( 0.6 );-o-transform: scale( 0.6 );-ms-transform: scale( 0.6 );transform: scale( 0.6 );
+    }
+
+    70% {
+        -webkit-transform: scale( .7 );-moz-transform: scale( .7 );-o-transform: scale( 0.7 );-ms-transform: scale( 0.7 );transform: scale( 0.7 );
+    }
+
+    80% {
+        -webkit-transform: scale( .8 );-moz-transform: scale( .8 );-o-transform: scale( .8 );-ms-transform: scale( .8 );transform: scale( .8 );
+    }
+
+    90% {
+        -webkit-transform: scale( 0.9 );-moz-transform: scale( 0.9 );-o-transform: scale( 0.9 );-ms-transform: scale( 0.9 );transform: scale( 0.9 );
+    }
+
+    100% {
+        -webkit-transform: scale(1);-moz-transform: scale( 1);-o-transform: scale1);-ms-transform: scale(  1);transform: scale(  1);
+    }
+}
+#scoreboard{
+	text-align:center;
+	font-size:69px;
+	font-weight:bold;
+	font-color:black;
+	font-family:Oregano;
+	 background: -webkit-linear-gradient(#392e40, #4c72b7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+	}
+
+		</style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="scoreboard">
+                Score: <span id="score">
+                    0
+                </span>
+            </div>
+            <div id="aimmap">
+			
+            </div>
+        </div>
+		
+        <script >
+		var map = document.getElementById("aimmap");
+var score = document.getElementById("score");
+
+map.addEventListener('click', function(e) {
+    let div = document.createElement('div')
+    div.setAttribute('class', 'click')
+    div.style.position = "absolute";
+    div.style.left = e.clientX-5+'px';
+    div.style.top = e.clientY-5+'px';
+    map.appendChild(div)
+    setInterval(function() {
+        div.remove()
+    }, 100);
+    score.innerHTML = parseInt(score.innerHTML) - 1
+})
+
+var speed = 1000
+var iterations = 0
+
+setInterval(function() {
+    if (iterations < speed) {
+        return iterations += 100
+    }
+    iterations = 0
+    let div = document.createElement('div')
+    div.setAttribute('class', 'target')
+    div.style.position = "absolute";
+    let x = Math.floor(Math.random() * ((screen.width-200)+1) + 1);
+    let y = Math.floor(Math.random() * ((screen.height-200)+1) + 1);
+    div.style.left = x+'px';
+    div.style.top = y+'px';
+    map.appendChild(div)
+    div.addEventListener('click', function() {
+        let t = this
+        setInterval(function() {
+            t.remove()
+        }, 100)
+        speed -= 10
+        score.innerHTML = parseInt(score.innerHTML) + 2
+    })
+}, 100);
+		</script>
+    </body>
+</html>
