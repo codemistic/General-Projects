@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubble Burst</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- start page -->
+    <div id="start">
+      <h1>Welcome to Bubble Burst😀</h1>
+      <h3>
+        Rule: You have to hit a buble before timer its 0 and it will reset on
+        hitting a bubble.
+      </h3>
+      <button id="startButton" onclick="start()">START</button>
+
+      <p>
+        Made By
+        <a href="https://github.com/Bharat-kr" target="_blank"> Bharat Kumar</a>
+      </p>
+    </div>
+
+    <!-- main page -->
+    <div id="main">
+      <div id="time">TIME</div>
+      <div class="bubContainer">
+        <div class="bub" id="bub1"></div>
+        <div class="bub" id="bub2"></div>
+        <div class="bub" id="bub3"></div>
+        <div class="bub" id="bub4"></div>
+        <div class="bub" id="bub5"></div>
+        <div class="bub" id="bub6"></div>
+        <div class="bub" id="bub7"></div>
+        <div class="bub" id="bub8"></div>
+        <div class="bub" id="bub9"></div>
+        <div class="bub" id="bub10"></div>
+      </div>
+      <div id="score">SCORE</div>
+    </div>
+
+    <!-- end page -->
+    <div id="end">
+      <h1>Your Score</h1>
+      <div id="finalScore"></div>
+      <button id="retryButton" onclick="refresh()">RETRY</button>
+    </div>
+
+    <audio id="music" autoplay loop>
+      <source src="Background.mp3" type="audio/mp3" />
+    </audio>
+
+    <!-- javascript -->
+    <script src="time.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
