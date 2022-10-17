@@ -1,0 +1,239 @@
+/* CSS reset */
+* {
+  /* background-color: aqua; */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/* CSS variables */
+:root {
+  --navbar-height: 69px;
+}
+
+/* logo and image  */
+#logo {
+  cursor: pointer;
+}
+
+#logo img {
+  margin: 0px;
+  padding: 0px 10px;
+  border-radius: 50%;
+}
+
+img {
+  height: 5vmax;
+  width: 5vmax;
+}
+
+/* navigation bar  */
+#navbar {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+}
+
+/* Navigation bar | list styling */
+#navbar ul {
+  display: flex;
+}
+#navbar::before {
+  content: "";
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.4;
+}
+#navbar ul li {
+  /* display: flex; */
+  list-style: none;
+  font-size: 1.2rem;
+}
+#navbar ul li a {
+  color: black;
+  font-size: 1.2rem;
+  font-family: "Baloo Bhaina 2", cursive;
+  display: block;
+  padding: 3px 22px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+#navbar ul li a:hover {
+  color: white;
+  background-color: rgb(0, 0, 0);
+  font-family: "Baloo Bhaina 2", cursive;
+  display: block;
+  padding: 3px 22px;
+  border-radius: 20pc;
+  text-decoration: none;
+}
+
+/* Home section  */
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 560px;
+  padding: 3px 200px;
+}
+#home::before {
+  content: "";
+  background: url(../bg.jpeg) no-repeat center center/cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 81%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+}
+#home h1 {
+  color: black;
+  text-align: center;
+  font-family: "Acme", sans-serif;
+}
+#home p {
+  color: black;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "Acme", sans-serif;
+}
+
+/* Client section  */
+#client {
+  position: relative;
+  height: 245px;
+}
+#client::before {
+  content: "";
+  position: absolute;
+  background: url(../bg2.jpg) no-repeat center center/cover;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+}
+#client-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#client h1 {
+  padding: 12px;
+  font-family: "Acme", sans-serif;
+  font-size: 2.3rem;
+  text-align: center;
+}
+.cileint-item {
+  padding: 43px;
+}
+#client-section img {
+  height: 152px;
+  width: 152px;
+}
+/* Contact Section  */
+#contact h1 {
+  padding-top: 1px;
+  font-family: "Acme", sans-serif;
+  font-size: 1.9rem;
+  text-align: center;
+}
+#contact {
+  position: relative;
+  height: 356px;
+}
+#contact::before {
+  content: "";
+  position: absolute;
+  background: url(../R.png) no-repeat center center/cover;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.8;
+}
+#contact-box form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#contact-box input,
+#contact-box textarea {
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 8px;
+}
+#contact-box .formgrp {
+  width: 30%;
+}
+#contact-box label {
+  font-family: "Baloo Bhaina 2", cursive;
+}
+/* Footer  */
+footer {
+  background: black;
+  color: white;
+  padding: 0px 20px;
+}
+/* Services section */
+#services {
+  display: flex;
+  margin: 34px;
+}
+#services .box {
+  border: 2px solid brown;
+  margin: 2px 20px;
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+#services .box img {
+  margin: auto;
+  display: block;
+  height: 10vmax;
+  width: 12vmax;
+}
+.services h1 {
+  margin-top: 16px;
+  font-family: "Acme", sans-serif;
+  font-size: 2.3rem;
+  text-align: center;
+}
+.services h2 {
+  font-family: "Baloo Bhaina 2", cursive;
+  text-align: center;
+}
+
+/* Utility classes */
+.primary {
+  font-size: 2.8rem;
+  padding: 12px;
+}
+.secondary-center {
+  font-size: 1.8rem;
+  padding: 12px;
+}
+.btn {
+  padding: 6px 20px;
+  background-color: rgba(128, 128, 128, 0.925);
+  border: 2px solid black;
+  margin: 20px;
+  font-size: 1.2rem;
+  border-radius: 9pt;
+  cursor: pointer;
+}
+.center {
+  text-align: center;
+  font-family: "Baloo Bhaina 2", cursive;
+}
+
+textarea {
+  height: 75px;
+}
