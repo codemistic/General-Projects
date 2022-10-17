@@ -1,5 +1,3 @@
-// Calculate simple interest and compound amount with menu
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
