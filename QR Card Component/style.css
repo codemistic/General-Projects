@@ -1,0 +1,42 @@
+body{
+
+    background-color: hsl(212, 45%, 89%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    
+}
+
+.container{
+    max-width: 360px;
+    margin: 0 auto;
+    
+    
+}
+
+
+.card{
+    background-color: hsl(0, 0%, 100%);
+    padding: 10px;
+    border-radius: 17px;
+    
+    text-align: center;
+    margin: 0 lem;
+    
+}
+
+.card img{
+    width: 100%;
+    border-radius: 12px;
+
+}
+
+.text{
+    padding: 22px 18px;
+}
+
+.text h2{
+    color: hsl(218, 44%, 22%);
+    padding-bottom: 15px;
+}
