@@ -1,0 +1,157 @@
+* {
+    margin: 0%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color: seagreen;
+}
+
+.header {
+    background-color: seagreen;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    ;
+}
+
+h1#title {
+    margin: 0px auto;
+    margin-left: auto;
+    padding-top: 50px;
+    color: rgb(250, 250, 250);
+    letter-spacing: 5px;
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+.optionsContainer {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: seagreen;
+    display: flex;
+    justify-content: center;
+}
+
+.firstThree {
+    width: 66%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.lastTwo {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.barsContainer {
+    width: 100%;
+    background-color: rgb(190, 255, 218);
+    padding-bottom: 50px;
+}
+
+.btn {
+    margin: auto;
+}
+
+#sortBtn {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.bar {
+    background-color: white;
+    display: inline-block;
+    border: 1px solid black;
+    position: relative;
+    margin-top: 30px;
+}
+
+.redBar {
+    background-color: red;
+}
+
+.yellowBar {
+    background-color: yellow;
+}
+
+.greenBar {
+    background-color: rgb(143, 255, 143);
+}
+
+.slider {
+    width: 200px;
+}
+
+label {
+    color: white;
+    padding: 10px;
+}
+
+p {
+    color: white;
+}
+
+#sortType {
+    width: auto;
+    padding-right: 40px;
+}
+
+div.footer {
+    position: relative;
+    background-color: seagreen;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 1391px) {
+    .optionsContainer {
+        flex-direction: column;
+    }
+    .firstThree {
+        width: 100%;
+    }
+    .lastTwo {
+        margin: 30px auto 0;
+        width: 70%;
+    }
+}
+
+@media Screen and (max-width: 918px) {
+    .firstThree {
+        flex-direction: column;
+    }
+    .lastTwo {
+        margin-top: 0;
+        flex-direction: column;
+    }
+    .btn {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    #sortBtn {
+        margin-top: 20px;
+    }
+}
+
+@media Screen and (max-width: 379px) {
+    .slider {
+        width: 170px;
+    }
+}
+
+@media Screen and (max-width: 349px) {
+    h1#title {
+        font-size: 3rem;
+    }
+    .slider {
+        width: 135px;
+    }
+}
