@@ -1,0 +1,54 @@
+*{
+    font-family: 'EB Garamond', serif;
+    padding: 0;
+    margin: 0 auto;
+    background-color: beige;
+    max-width: 100%;
+}
+
+h1{
+    margin: 40px;
+    
+}
+
+#userinput{
+    width: 350px;
+    height: 36px;
+    display: inline-block;
+}
+
+.btn{
+    margin: 20px 5px;
+    
+}
+.form-control{
+    margin: 0 auto;
+}
+
+ul{
+    list-style-type: none;
+  
+}
+ul > li{
+    font-size: 40px;
+}
+
+header{
+    background-color:rebeccapurple;
+    color: #fff;
+    min-width: 100%;
+    padding: 1rem;
+    border-bottom-left-radius: 5rem;
+}
+header h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    font-weight: bold;
+    background-color:rebeccapurple;
+}
+
+
+
+
+
+
