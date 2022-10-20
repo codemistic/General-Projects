@@ -1,0 +1,53 @@
+body{
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    
+    background-color: #F8F0E3;
+    font-family: 'Luckiest Guy', cursive;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+}
+.content{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.options{
+    display: flex;
+    padding-top: 30px;
+    align-items: center;
+    gap: 12px;
+}
+.sizeSelector{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gridContainer{
+    display: flex;
+    justify-content: center;
+}
+.grid{
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 500px;
+    width: 500px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+}
+.row{
+    flex-grow: 1;
+    display: flex;
+    justify-content: stretch;
+}
+
+.pixel{
+    /* border: 1px solid black; */
+    flex-grow: 1;
+}
