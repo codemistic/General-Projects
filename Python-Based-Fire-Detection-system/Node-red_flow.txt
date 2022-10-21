@@ -1,0 +1,83 @@
+[
+    {
+        "id": "28cc2528.992c5a",
+        "type": "bigexec",
+        "z": "3ebfe993.c2a2ce",
+        "name": "",
+        "command": "python fire_detection.py",
+        "commandArgs": "",
+        "minError": 1,
+        "minWarning": 1,
+        "cwd": "C:/Users/Niladri/Code-setup/Deep Learning/real-time-object-detection",
+        "shell": "",
+        "extraArgumentProperty": "",
+        "envProperty": "",
+        "format": "utf8",
+        "limiter": true,
+        "payloadIs": "triggerNoStdin",
+        "x": 368,
+        "y": 1396.5,
+        "wires": [
+            [
+                "4327a072.cd7a98"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4327a072.cd7a98",
+        "type": "ui_audio",
+        "z": "3ebfe993.c2a2ce",
+        "name": "",
+        "group": "9edc3884.c8a378",
+        "voice": "en-GB",
+        "always": "",
+        "x": 551,
+        "y": 1392,
+        "wires": []
+    },
+    {
+        "id": "6686278e.e10e",
+        "type": "ui_button",
+        "z": "3ebfe993.c2a2ce",
+        "name": "Start",
+        "group": "9edc3884.c8a378",
+        "order": 0,
+        "width": "4",
+        "height": "2",
+        "passthru": false,
+        "label": "Camera",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 198,
+        "y": 1407,
+        "wires": [
+            [
+                "28cc2528.992c5a"
+            ]
+        ]
+    },
+    {
+        "id": "9edc3884.c8a378",
+        "type": "ui_group",
+        "z": "",
+        "name": "Detection",
+        "tab": "d0c88fd3.4eef38",
+        "order": 1,
+        "disp": true,
+        "width": "11"
+    },
+    {
+        "id": "d0c88fd3.4eef38",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Parking",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
