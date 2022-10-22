@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "91794365719",
+    "firebase_url": "https://e2ee-chat-5d24e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "e2ee-chat-5d24e",
+    "storage_bucket": "e2ee-chat-5d24e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91794365719:android:be0a0a74c7be1b8322ab52",
+        "android_client_info": {
+          "package_name": "me.siddheshkothadi.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91794365719-6nogk63vbj6etnfgio9mblh5rk80fmpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.siddheshkothadi.chat",
+            "certificate_hash": "6e6d7224b5bf770289cc193c6327b3ff027703d1"
+          }
+        },
+        {
+          "client_id": "91794365719-fn0c30j3sqfstf3bf50ilkbmtfs3crl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9y9PPoF5rfD5j95UWOGgZOUsREG6wi9M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91794365719-fn0c30j3sqfstf3bf50ilkbmtfs3crl0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

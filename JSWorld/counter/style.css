@@ -1,0 +1,38 @@
+*{
+  margin: 0 auto;
+  max-width: 100%;
+  background: rgb(66, 66, 66);
+
+
+}
+.container {
+  padding: 20px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 65vh;
+  flex-direction: column;
+  font-size: 44px;
+  text-align: center;
+  color: aliceblue;
+}
+.description {
+  transition: 0.9s ease-in-out;
+}
+header{
+  background-color:#1FAA59;
+  color: aliceblue;
+  max-width: 100%;
+  padding: 1.3rem;
+  border-bottom-left-radius: 2rem;
+  margin-bottom: 30px;
+}
+header h1{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 3rem;
+  font-weight: bold;
+  background-color:#1FAA59;
+
+
+} 

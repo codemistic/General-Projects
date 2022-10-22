@@ -1,0 +1,39 @@
+body {
+  background-color: rgb(66, 66, 66);
+  /* display: flex; */
+ 
+  min-height: 100vh;
+  max-width: 100%;
+}
+
+.container{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 8%;
+  
+}
+
+button{
+  width: 90%;
+  /* min-height: 128px; */
+}
+header{
+  /* background-color:#AF9D5A; */
+  color: #1a1a1a;
+  max-width: 100%;
+  padding: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+header h1{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 3rem;
+  font-weight: bold;
+} 
+
+.list-group{
+  margin: 10px;
+  width: 90%;
+}
