@@ -44,7 +44,7 @@
 
 ## :dart: About ##
 
-Tensorflow is used to create simple CNN to classify mnist fashion dataset.
+Tensorflow is used to create simple CNN to classify cifar10 dataset.
 
 ## :rocket: Technologies ##
 
