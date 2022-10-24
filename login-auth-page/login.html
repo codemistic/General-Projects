@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/sign Up  </title>
+    <link rel="stylesheet" href="index.css">
+    
+
+     <!-- ----------------------FONT-AWSM----------LINK -->
+     <script src="https://kit.fontawesome.com/bf577c445a.js" crossorigin="anonymous"></script>
+
+       
+</head>
+<body>
+
+    <div class="world">
+
+        <!-- --------login page image-------- -->
+
+        <div class="img-fluid">
+            <img src="image.jpg">
+        </div>
+
+        
+<!-- ------------login form ---------------------- -->
+        <div class="formm">
+
+            <!-- login text--- -->
+            <div class="login">
+                <h1>Login / Sign Up</h1>
+            </div>
+
+         <div class="inputs">
+            <!-- first username box--- -->
+         <div class="username">
+                    <i class="fas fa-users"></i>
+                    <input class="input-field" id="username" placeholder="Username">
+        </div>
+                
+        </br>
+
+        <!-- ------------pasword--------- -->
+        <div class="username">
+            
+            <i class="fas fa-lock"></i> 
+            <input class="input-field" id="password"  type="password" placeholder="Password">
+        </div>
+                
+             </div>
+             <!-- -------submit button--------- -->
+             <div class="button">
+                <button class="btn" value="Login" id="submit" onclick="validate()" > Submit </button>
+             </div>
+
+         </div>
+    </div>
+
+        <script >
+
+            // ------------javascript code for password alert----------
+
+            function validate() {
+                var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+// it will check whether user has put up something OR not 
+
+            if (username == null || username == "") {
+                alert("Please enter the username....!!");
+                return false;
+            }
+// it will check whether user has put up password something OR not 
+            if (password == null || password == "") {
+                alert("Please enter the password....!!");
+                return false;
+            }
+            alert('Login successful..welcome.!!');
+            }
+
+            
+            </script>
+    
+</body>
+</html>
