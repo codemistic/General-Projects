@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "400859303917",
+    "project_id": "flash-chat-dadc4",
+    "storage_bucket": "flash-chat-dadc4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400859303917:android:82e2586a39ec93a8c321e4",
+        "android_client_info": {
+          "package_name": "co.ciscoX7.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400859303917-1h8v6sjk79e9kponeu42h7cjslu5nstp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_V-_a67il6lP2hoBHMDVQqf57WnGYaoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "400859303917-1h8v6sjk79e9kponeu42h7cjslu5nstp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400859303917:android:0c1c630043c0c6ddc321e4",
+        "android_client_info": {
+          "package_name": "co.ciscoX7.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400859303917-1h8v6sjk79e9kponeu42h7cjslu5nstp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_V-_a67il6lP2hoBHMDVQqf57WnGYaoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "400859303917-1h8v6sjk79e9kponeu42h7cjslu5nstp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
