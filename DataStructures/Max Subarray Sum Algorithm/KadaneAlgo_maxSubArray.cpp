@@ -9,13 +9,13 @@ using namespace std;
 
 // Time complexity:O(n)
 
-int kadane(int arr[], int &n)
+int kadane(int ar[], int &n)
 {
     int currentsum = 0;
     int maxsum = INT_MIN;
     for (int i = 0; i < n; i++)
     {
-        currentsum += arr[i];
+        currentsum += ar[i];
         maxsum = max(currentsum, maxsum);
 
         if (currentsum < 0)
