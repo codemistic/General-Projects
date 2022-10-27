@@ -70,7 +70,7 @@ class HuffmanCoding:
         padded_amount=8-(len(encoded_text)%8)
         
         for i in range(padded_amount):
-            encoded_text+='0'
+            encoded_text=encoded_text+'0'
         padded_info="{0:08b}".format(padded_amount)
         padded_encoded_text=padded_info+encoded_text
         return padded_encoded_text
