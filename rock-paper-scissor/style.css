@@ -1,0 +1,90 @@
+body{
+    background-color: #ffda00;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+h1{
+    text-align: center;
+    font-size: xxx-large;
+    font-weight: bolder;
+    color: red;
+}
+
+#img1{
+    padding-top: 20px;
+    margin-left: 336px;
+    transform: rotateY(180deg);
+}
+
+#img2{
+    padding-top: 20px;
+    position: absolute;
+    top: 20%;
+    left: 52%;
+}
+
+#rock{
+    position: absolute;
+    left: 400px;
+    top: 75%;
+    visibility: hidden;
+}
+
+#paper{
+    position: absolute;
+    left: 560px;
+    top: 75%;
+    visibility: hidden;
+}
+
+#scissors{
+    position: absolute;
+    top: 75%;
+    left: 720px;
+    visibility: hidden;
+}
+
+button{
+    height: 80px;
+    width: 140px;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: orangered;
+    color: floralwhite;
+    border: solid 4px floralwhite;
+    border-radius: 44px;
+    cursor: pointer;
+}
+
+#start{
+    background-color: darkgreen;
+    position: absolute;
+    top: 75%;
+    left: 45%;
+}
+
+@keyframes shakeLeft {
+    0%{
+        transform: rotateY(180deg) translateY(0px);
+    }
+    50%{
+        transform: rotateY(180deg) translateY(-50px);
+    }
+    100%{
+        transform: rotateY(180deg) translateY(0px);
+    }
+}
+
+@keyframes shakeRight {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-50px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
