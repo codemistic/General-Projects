@@ -2,24 +2,24 @@
 int Fibonacci(int);
 int main()
 {
-	int n,i;
+	int m,i;
 	printf("Enter a number you want to generate fibonacci series\n");
-	scanf("%d",&n);
+	scanf("%d",&m);
 	printf("Fibonacci series\n");
-	for(i=0;i<n;i++)
+	for(i=0;i<m;i++)
 	{
 		printf("%d\n",Fibonacci(i));
 	}
 	return 0;
 }
-int Fibonacci(int n)
+int Fibonacci(int m)
 {
-	if(n == 0)
+	if(m == 0)
 		return 0;
-	else if(n == 1)
+	else if(m == 1)
 		return 1;
 	else
-		return(Fibonacci(n-1) + Fibonacci(n-2));
+		return(Fibonacci(m-1) + Fibonacci(m-2));
 }
 
 
