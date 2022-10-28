@@ -1,0 +1,124 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,300,500');
+
+*:focus {
+outline: none;
+}
+
+body {
+margin: 0;
+padding: 0;
+background: #DDD;
+font-size: 16px;
+color: #222;
+font-family: 'Roboto', sans-serif;
+font-weight: 300;
+}
+
+#signup{
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background: #fff;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#left{
+    width: 300px;
+    height: 400px;
+    float: left;
+    margin-left: 30px;
+}
+h1{
+    font-weight: 300;
+    margin: 34px 0 20px 0;
+}
+
+.input{
+    display: block;
+    border: none;
+    padding: 4px;
+    width: 220px;
+    height: 32px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 12pt;
+    border-bottom: 1px solid #AAA;
+}
+
+.input:focus{
+    color: #16a085;
+    border-bottom: 2px solid #16a085;
+    transition: 0.2s ease
+}
+
+#submit{
+    background: rgb(22, 143, 113);
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 16px;
+    text-align: center;
+    font-size: 12pt;
+    margin-top: 20px;
+}
+#submit:hover{
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+
+
+
+#or{
+    width: 50px;
+    display: block;
+    height: 50px;
+    border-radius: 50%;
+    background: #ccc;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    left: 48%;
+    
+    line-height: 50px;
+}
+
+#right{
+    width: 240px;
+    height: 400px;
+    float: right;
+}
+
+.btn{
+    
+    margin-top: 20px;
+    width: 220px;
+    height: 36px;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.btn:focus, .btn:hover{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.2s ease;
+}
+
+#facebook{
+    background: #32508E;;
+}
+#twitter{
+    background: #55ACEE;
+}
+#google{
+    background: #DD4B39;
+}

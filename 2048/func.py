@@ -1,6 +1,6 @@
 import random
 
-grid_size = 4
+grid_size = 5
 
 
 def inst_two(M):
