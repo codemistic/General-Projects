@@ -1,0 +1,438 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    background: black;
+    overflow-x: hidden;
+}
+/* ----------------------preloader------------------- */
+#preloader{
+    background: #000 url(https://i.pinimg.com/originals/a7/b0/15/a7b015d343ad801ad6da8c242dc6ae06.gif) no-repeat center center;
+    background-size: 50%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+/* ------------------------------------navbar------------------------ */
+.navbar{
+    color: white;
+    width: 100%;
+    height: 65px;
+    background: rgba(0, 0, 0, 0.936);
+}
+.navbar::before{
+    content: ' ';
+    position: absolute;
+    color: white;
+    width: 120px;
+    height: 85px;
+    background: rgba(0, 0, 0, 0.936);
+    margin-left: 50%;
+    border-radius: 25%;
+    /* z-index: ; */
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 17px;
+}
+.nav1 ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.nav2 ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.nav2 ul li,.nav1 ul li{
+    margin: 20px;
+}
+nav a{
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.6s ease;
+}
+nav a:hover{
+    text-decoration: underline;
+}
+.mainlogo img{
+    position: absolute;
+    margin-top: -12px;
+    margin-left: -45px;
+    width: 110px;
+    height: 60px;
+    border-radius: 25%;
+}
+/* --------------------landing section----------------- */
+.landing{
+    background: black;
+}
+.land{
+    width: 100%;
+    height: 90vh;
+    /* transition-duration: 0.6s; */
+    background: url(https://c4.wallpaperflare.com/wallpaper/425/839/665/video-games-prince-of-persia-the-two-thrones-prince-of-persia-wallpaper-preview.jpg) no-repeat center center/cover;
+    z-index: -2;
+    animation: land 35s ease-in infinite;
+}
+@keyframes land{
+    0%{
+        background: url(https://w0.peakpx.com/wallpaper/360/838/HD-wallpaper-prince-of-persia-warrior-within-prince-of-persia-prince-of-persia-2-mfh-dark-warrior-prince.jpg) no-repeat center center/cover;
+        
+    }
+    50%{
+        background: url(https://images4.alphacoders.com/107/thumb-1920-1077274.jpg);
+    }
+    75%{
+        background: url(https://c4.wallpaperflare.com/wallpaper/408/171/782/batman-the-dark-knight-rises-movies-wallpaper-preview.jpg) no-repeat center center/cover;
+    }
+    100%{
+        background: url(https://wallpapercave.com/wp/wp3544421.jpg) no-repeat center center/cover;
+    }
+}
+
+/* -----------------------------featured section-------------- */
+.neons {
+    margin-top: 7rem;
+    text-align: center;
+    margin-bottom: 40px;
+    z-index: 222;
+ }
+ 
+ .neons h1 {
+   font-size: 64px;
+   text-align: center;
+    font-weight: bold;
+   -webkit-animation: glow 2s ease-in-out infinite alternate;
+   -moz-animation: glow 2s ease-in-out infinite alternate;
+   animation: glow 2s ease-in-out infinite alternate;
+ }
+ 
+ @keyframes glow {
+      from {
+       color: #fff;
+     text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 90px #00fff2;
+   }
+   
+   to {
+      color: gray;
+     text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 80px #00fff2, 0 1 90px #00fff2;
+   }
+ }
+ .f3{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+ }
+.featureditems1,.featureditems2,.featureditems3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-left: 5%;
+    padding: 20px;
+}
+.featureditems1:hover .itempng img,
+.featureditems2:hover .itempng img,
+.featureditems3:hover .itempng img{
+    animation: animateimg 8s ease-in-out infinite;
+}
+.featureditems1 .itempng img{
+    width: 410px;
+    height: 330px;
+    z-index: -1;
+}
+.featureditems2 .itempng img{
+    width: 350px;
+    height: 300px;
+    margin-right: 60px;
+    margin-top: -100px;
+    z-index: -1;
+}
+.featureditems3 .itempng img{
+    width: 750px;
+    height: 520px;
+    z-index: -11;
+    margin-left: -150px;
+}
+.featureditems3 .itemdetail{
+    margin-left: -260px;
+}
+.blackbg::after{
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 150px;
+    background: black;
+    filter: blur(17px);
+    opacity: 0.9;
+    z-index: 555;
+    margin-left: -300px;
+    margin-top: 60px;
+    transition-duration: 0.6s;
+    animation: animateimg 10s ease infinite;
+}
+@keyframes animateimg {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.25);
+    }
+    
+}
+.itemdetail{
+    background: rgba(0, 0, 0, 0.342);
+    color: white;
+    margin-left: -90px;
+    height: 320px;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 222;
+
+}
+.itemdetail h1{
+    font-size: 32px;
+    margin: 15px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.itemdetail .about{
+    margin: 15px 15px;
+    padding: 20px;
+    font-size: 17px;
+}
+.dwonlinks{
+    text-align: center;  
+    margin-top: -100px;  
+}
+.featured a{
+    text-decoration: none;
+    color: #fff;
+    width: 200px;
+    height: 60px;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    line-height: 60px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 30px;
+    padding: 12px;
+    z-index: 1;
+}
+.featured a:hover{
+    animation: animatelist 8s linear infinite;
+}
+@keyframes animatelist
+{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+.featured a::before{
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    right: -10%;
+    bottom: -10%;
+    z-index: -1;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0%;
+    transform: 0.5%;
+}
+.featured a:hover:before{
+    filter: blur(20px);
+    opacity: 25%;
+    animation: animatelist 3s linear infinite;
+}
+
+/* -----------------------recommanded-------------------- */
+.recommanded{
+    margin-top: -120px;
+    font-family: Arial, Helvetica, sans-serif ;
+}
+.recommanded a{
+    color: white;
+}
+.favhead{
+    z-index: 222;
+    position: relative;
+}
+.favsec{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+    height: 650px;
+    background: black;
+}
+.fav{
+    width: 40%;
+    margin-top: 5px;
+}
+.fav img{
+    width: 420px;
+    height: 440px;
+}
+.fav .favdetail{
+    margin: 25px;
+    margin-top: 5px;
+}
+.fav .favdetail h1{
+    font-size: 32px;
+    text-decoration: underline;
+}
+.fav .favdetail p{
+    font-size: 17px;
+    margin: 5px;
+}
+.sim{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 60%;
+    flex-direction: column;
+    margin-top: -30px;
+}
+.sim1 img,.sim2 img{
+    height: 260px;
+    width: 370px;
+    margin: 10px;
+}
+.sim1,.sim2{
+    display: flex;
+    background: black;
+}
+.sim1 .favdetail, .sim2 .favdetail{
+    width: 250px;
+    padding: 25px;
+}
+.sim1 .favdetail h1, .sim2 .favdetail h1{
+    font-size: 28;
+    margin: 5px;
+    text-decoration: underline;
+}
+.sim1 .favdetail p, .sim2 .favdetail p{
+    font-size: 15px;
+    margin: 2px;
+}
+
+/*-----------------brands-------------*/
+
+.brands{
+    padding: 100px;
+    background: black;
+}
+.col5{
+    width: 150px;
+}
+.col5 img{
+    width: 100%;
+    cursor: pointer;
+    filter: grayscale(0%);
+}
+.col5 img:hover{
+    filter: grayscale(100%);
+}
+
+/*-----------------footer-------------*/
+
+.footer{
+    background: black;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+.footer p{
+    color: #8a8a8a;
+}
+.footer a{
+    color: white;
+}
+.footer h3{
+    color: white;
+    margin-bottom: 20px;
+}
+.footercol1,.footercol2,.footercol3,.footercol4{
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+.footercol1{
+    flex-basis: 30%;
+    margin-left: 35px;
+}
+.footercol2{
+    flex:1;
+    text-align: center;
+}
+.footercol2 img{
+    width: 180px;
+    margin-bottom: 20px;
+}
+.footercol3,.footercol4{
+    flex-basis: 12%;
+    text-align: center;
+}
+ul{
+    list-style-type: none;
+}
+.applogo{
+    margin-top: 20px;
+}
+.applogo img{
+    width: 140px;
+}
+.footer hr{
+    border: none;
+    background: #b5b5b5;
+    height: 1.5px;
+    margin: 15px 0;
+}
+.copyright{
+    text-align: center;
+}
+.row{
+    display: flex;
+    justify-content: space-evenly;
+}
+.row1{
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+}
+.footercol2 img{
+    width: 180px;
+    height: 100px;
+}
+.col5{
+    padding-top: 80px;
+    margin-bottom: -130px;
+    margin-left: 50px;
+}
