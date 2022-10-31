@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/
+        css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <title>Contact Us</title>
+
+    <style>
+        .h1-tag{
+            text-align: center;
+            margin-top: 4%;
+        }
+        .form-content-section{
+            width: 50%;
+            margin-top: 3%;
+            margin-left: 25%;
+        }
+        @media screen and (max-width: 600px){
+            .form-content-section{
+                width: 100%;
+                margin-top: 10%;
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 800px){
+            .form-content-section{
+                width: 100%;
+                margin-top: 10%;
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 600px){
+            .form-group{
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            .btn-primary{
+                margin-left: 10px;
+            }
+        }
+        @media screen and (max-width: 800px){
+            .form-group{
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .btn-primary{
+                margin-left: 20px;
+            }
+        }
+        .myclass{
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <div class="container py-4">
+            <span id="head-container"></span>
+            <section id="form-section">
+                <h1 class="h1-tag text-primary">Your Feedback Is important For Us</h1>
+                <p class="text-primary" style="text-align: center;">We would love to hear your thoughts, concerns or problem with anything so we can improve!</p>
+                <form method="POST" autocomplete="off" name="google-sheet" class="form-content-section">
+                    <div class="form-group">
+                        <label for="exampleInputText">Name</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputText" placeholder="Enter Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">
+                            We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputText">Contact Number(Optional)
+                        </label>
+                        <input type="text" name="contact" class="form-control" id="exampleInputText">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Describe Feedback
+                        </label>
+                        <textarea name="feedback" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary myclass">
+                        Post Comment</button>
+                </form>
+            </section>
+
+            <span id="foot-container"></span>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="/scripts/index.js"></script>
+        </div>
+        </div>
+
+        
+    </main>
+    <!-- submit on google sheet -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzv-_6af1iiMjRouD9WeMRWbRVztTf1kp0EGs8Q0uVvFTWT3P8/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+
+</html>
+
+
