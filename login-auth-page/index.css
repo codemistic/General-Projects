@@ -1,0 +1,127 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"); */
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .world {
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 45em;
+  }
+  
+  .img-fluid img {
+    max-width: 100%;
+    height: auto;
+    float: left;
+  }
+  .img-fluid {
+    padding: 4em;
+  }
+  
+  .formm {
+    height: auto;
+    background: rgb(245, 37, 89);
+    padding: 7em;
+    margin: 5em;
+    border-radius: 74% 26% 50% 50% / 61% 30% 70% 39%;
+    border: 10px solid black;
+  }
+  .login h1 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  .username input {
+    border: 4px solid #000;
+  
+    padding: 20px;
+    border-radius: 52px;
+  }
+  .input-field {
+    font-size: 1em;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  .username i {
+    position: absolute;
+    font-size: 1.4em;
+    padding: 1em;
+  }
+  
+  .username {
+    display: -ms-flexbox;
+  
+    display: flex;
+    width: 100%;
+  }
+  
+  .username .fa-eye,
+  .pwd .fa-eye-slash {
+    cursor: pointer;
+    width: 1.2em;
+  }
+  
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 0em 0em 0em;
+  }
+  
+  .btn {
+    font-size: 1.3em;
+    padding: 0.5em 1em 0.5em 1em;
+    letter-spacing: 2px;
+    border: 4px solid #000;
+    border-radius: 50px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  
+  .btn:hover {
+    color: white;
+    background: black;
+  }
+  
+  .button:hover,
+  .username {
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+  }
+  
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-2px, 0, 0);
+    }
+    40%,
+    60% {
+      transform: translate3d(2px, 0, 0);
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .formm {
+      /* padding: 7em;
+      margin: -4em; */
+      padding: 5em;
+      margin: auto;
+    }
+    .img-fluid {
+      display: none;
+    }
+  }

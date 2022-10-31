@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Cutive+Mono&family=Varela+Round&display=swap');
+
+
+/* body  */
+body{
+    background-color: black;
+    margin: 0;
+    text-align: center;
+}
+
+
+/* navbar */
+.nav{
+    /* width: 100%; */
+    /* height: 20%; */
+    background-color: #3B0000;
+    padding: 1.5%;
+}
+.head{
+    margin: 0;
+    font-size: 3rem;
+    font-family: 'Audiowide', cursive;
+    color: black;
+}
+
+/* textarea */
+.txtarea{
+    background-color: black;
+    border-width: 1px;
+    border-color: #3B0000;
+    border-radius: 20px;
+    padding: 1.2rem;
+    color: #B22727;
+    font-family: 'Cutive Mono', monospace;
+    font-size: 1rem;
+}
+textarea[name="input"]{
+    margin-top: 1rem;
+}
+textarea[name="output"]{
+    margin-top: 0;
+}
+
+
+/* btn  */
+.btn{
+    background-color: #3B0000;
+    border-width: 0;
+    padding: 1% 15%;
+    font-size: 1rem;
+    font-family: 'Varela Round', sans-serif;
+    cursor: pointer; 
+}
+.btn:hover{
+    background-color: black;
+    color: #B22727;
+}
+
+/* text  */
+h2{
+    color: #890F0D;
+    font-family: 'Audiowide', cursive;
+    margin: 0;
+}
+h3{
+    margin-bottom: 0;
+    margin-top: 1rem;
+    font-family: 'Audiowide', cursive;
+    font-size: 1.5rem;
+}
+h6{
+    font-family: 'Cutive Mono', monospace;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* footer  */
+.foot{
+    background-color: #3B0000;
+    padding: 1%;
+    margin-top: 1rem;
+    bottom: 0;
+}
+
+
+@media only screen and (max-width: 826px) {
+    .nav .foot{
+        width: 100%;
+    }
+    .txtarea{
+        width: 50%;
+        height: 40%;
+    }
+}
